@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethnicity Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Ethnicity Calculator</h1>
+    
+    <!-- ... -->
+    <form id="ethnicity-form">
+      <div id="father-ethnicities">
+        <h3>Father's Ethnicities</h3>
+        <div class="ethnicity-container"></div>
+        <button type="button" class="add-ethnicity" data-parent="father-ethnicities">Add Father's Ethnicity</button>
+      </div>
+      <div id="mother-ethnicities">
+        <h3>Mother's Ethnicities</h3>
+        <div class="ethnicity-container"></div>
+        <button type="button" class="add-ethnicity" data-parent="mother-ethnicities">Add Mother's Ethnicity</button>
+      </div>
+      <button type="submit">Calculate Ethnicity</button>
+    </form>
+    <!-- ... -->
+
+    <div id="results">
+      <h2>Ethnic Makeup</h2>
+      <ul id="ethnicity-list"></ul>
+    </div>
+
+     <section class="explanation">
+    <h2>How to Determine Your Parents' Ethnic Makeup</h2>
+    <p>
+      To determine your parents' ethnic makeup, you can start by having a conversation with them about their ancestry and background. Ask questions about their parents, grandparents, and any other relatives who might provide information about their ethnic origins. You may also want to ask about family traditions, languages spoken, and any cultural practices that have been passed down through generations.
+    </p>
+    <p>
+      Another way to determine your parents' ethnic makeup is through genetic testing. DNA testing services, such as AncestryDNA or 23andMe, can provide detailed information about your genetic ancestry, which may give you insights into your parents' ethnic background.
+    </p>
+  </section>
+
+
+  <footer>
+    <p>Created by <a href="https://www.dankoresoft.com/" target="_blank">DankoRe Software LLC, USA</a></p>
+    <p>Follow me on <a href="https://twitter.com/adamuMdankore" target="_blank">Twitter</a></p>
+  </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>
