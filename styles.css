@@ -5,6 +5,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #f8f9fa; /* Add this line */
 }
 
 form {
@@ -68,7 +69,6 @@ li {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* ... existing CSS ... */
 
 .add-ethnicity {
   background-color: #2ecc71;
@@ -119,4 +119,16 @@ footer a:hover {
   font-size: 16px;
   line-height: 1.5;
   text-align: justify;
+}
+
+.branding {
+  text-align: center;
+  background-image: linear-gradient(to right, #008751, #008751 33.33%, #ffffff 33.33%, #ffffff 66.66%, #008751 66.66%);
+  color: #090000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 4px;
 }
