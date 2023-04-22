@@ -154,4 +154,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
   });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker Registered:', registration);
+      })
+      .catch(error => {
+        console.error('Service Worker Registration Failed:', error);
+      });
+  } else {
+    console.log('Service Workers are not supported by this browser.');
+  }
+
 });
