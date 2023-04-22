@@ -29,22 +29,42 @@ document.addEventListener('DOMContentLoaded', function () {
     parentElement.appendChild(inputGroup);
   }
 
-  for (let i = 0; i < 5; i++) {
+  // Add "Add Ethnicity" buttons
+  const addFatherEthnicityBtn = document.createElement('button');
+  const addMotherEthnicityBtn = document.createElement('button');
+
+  addFatherEthnicityBtn.textContent = 'Add More Father Ethnicity';
+  addFatherEthnicityBtn.type = 'button';
+  addFatherEthnicityBtn.classList.add('add-ethnicity');
+  addMotherEthnicityBtn.textContent = 'Add More Mother Ethnicity';
+  addMotherEthnicityBtn.type = 'button';
+  addMotherEthnicityBtn.classList.add('add-ethnicity');
+
+  fatherEthnicities.appendChild(addFatherEthnicityBtn);
+  motherEthnicities.appendChild(addMotherEthnicityBtn);
+
+  addFatherEthnicityBtn.addEventListener('click', () => {
     createInputGroup(fatherEthnicities.querySelector('.ethnicity-container'));
+  });
+
+  addMotherEthnicityBtn.addEventListener('click', () => {
     createInputGroup(motherEthnicities.querySelector('.ethnicity-container'));
+  });
+
+  function getTotalPercentage(inputGroups) {
+    return inputGroups.reduce((total, inputGroup) => {
+      const percentageInput = inputGroup.querySelector('input[type=number]');
+      if (percentageInput) {
+        const percentage = parseFloat(percentageInput.value);
+        return total + (isNaN(percentage) ? 0 : percentage);
+      }
+      return total;
+    }, 0);
   }
 
-function getTotalPercentage(inputGroups) {
-  return inputGroups.reduce((total, inputGroup) => {
-    const percentageInput = inputGroup.querySelector('input[type=number]');
-    if (percentageInput) {
-      const percentage = parseFloat(percentageInput.value);
-      return total + (isNaN(percentage) ? 0 : percentage);
-    }
-    return total;
-  }, 0);
-}
-
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -70,7 +90,7 @@ function getTotalPercentage(inputGroups) {
       const percentageInput = inputGroup.querySelector('input[type=number]');
 
       if (ethnicityInput && percentageInput) {
-        const ethnicity = ethnicityInput.value.trim();
+        const ethnicity = ethnicityInput.value.trim().toLowerCase();
         const percentage = parseFloat(percentageInput.value);
 
         if (ethnicity && !isNaN(percentage)) {
@@ -84,7 +104,7 @@ function getTotalPercentage(inputGroups) {
       const percentageInput = inputGroup.querySelector('input[type=number]');
 
       if (ethnicityInput && percentageInput) {
-        const ethnicity = ethnicityInput.value.trim();
+        const ethnicity = ethnicityInput.value.trim().toLowerCase();
         const percentage = parseFloat(percentageInput.value);
 
         if (ethnicity && !isNaN(percentage)) {
@@ -96,9 +116,8 @@ function getTotalPercentage(inputGroups) {
     resultsList.innerHTML = '';
     for (const ethnicity in ethnicities) {
       const li = document.createElement('li');
-      li.textContent = `${ethnicity}: ${ethnicities[ethnicity].toFixed(1)}%`;
+      li.textContent = `${capitalizeFirstLetter(ethnicity)}: ${ethnicities[ethnicity].toFixed(1)}%`;
       resultsList.appendChild(li);
     }
   });
-
 });
