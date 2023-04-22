@@ -8,6 +8,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="Find out your Nigerian ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' and grandparents' ethnicities." />
+    <meta name="keywords" content="Nigerian, ethnicity calculator, ethnic makeup, Nigerian ethnicity, heritage, culture, genealogy" />
+
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="How Nigerian Are You? - Ethnicity Calculator" />
+    <meta property="og:description" content="Find out your Nigerian ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' and grandparents' ethnicities." />
+    <meta property="og:url" content="https://how-nigerian-are-you.dankoresoft.com/" />
+    <meta property="og:type" content="website" />
+    <!-- Add an image to be used when sharing on social media (Recommended size: 1200x630) -->
+    <!-- <meta property="og:image" content="https://how-nigerian-are-you.dankoresoft.com/path/to/your/image.jpg"> -->
+
+    <!-- Twitter Card meta tags for Twitter sharing -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How Nigerian Are You? - Ethnicity Calculator" />
+    <meta name="twitter:description" content="Find out your Nigerian ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' and grandparents' ethnicities." />
+    <meta name="twitter:url" content="https://how-nigerian-are-you.dankoresoft.com/" />
+    <!-- Add an image to be used when sharing on Twitter (Recommended size: 1200x675) -->
+    <!-- <meta name="twitter:image" content="https://how-nigerian-are-you.dankoresoft.com/path/to/your/image.jpg"> -->
   </head>
   <body>
     <div class="branding">
@@ -16,21 +34,37 @@
 
     <h1>Ethnicity Calculator</h1>
 
-    <!-- ... -->
     <form id="ethnicity-form">
-      <div id="father-ethnicities">
-        <h3>Father's Ethnicities</h3>
-        <div class="ethnicity-container"></div>
-        <button type="button" class="add-ethnicity" data-parent="father-ethnicities">Add Father's Ethnicity</button>
+      <div class="input-groups-wrapper">
+        <div class="input-group-container">
+          <div id="father-ethnicities">
+            <h3>Father's Ethnicities</h3>
+            <div class="ethnicity-container">
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+            </div>
+          </div>
+        </div>
+        <div class="input-group-container">
+          <div id="mother-ethnicities">
+            <h3>Mother's Ethnicities</h3>
+            <div class="ethnicity-container">
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+              <div class="input-group"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="mother-ethnicities">
-        <h3>Mother's Ethnicities</h3>
-        <div class="ethnicity-container"></div>
-        <button type="button" class="add-ethnicity" data-parent="mother-ethnicities">Add Mother's Ethnicity</button>
+      <div class="add-button-container">
+        <button type="submit">Calculate Ethnicity</button>
       </div>
-      <button type="submit">Calculate Ethnicity</button>
     </form>
-    <!-- ... -->
 
     <div id="results">
       <h2>Ethnic Makeup</h2>

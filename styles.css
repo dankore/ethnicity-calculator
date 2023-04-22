@@ -5,7 +5,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8f9fa; /* Add this line */
+  background-color: #f8f9fa;
 }
 
 form {
@@ -14,29 +14,21 @@ form {
   gap: 10px;
 }
 
-.ethnicity-row label {
-  display: inline-flex;
-  flex-direction: column;
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.input-group input[type="text"] {
+  flex: 1;
   margin-right: 10px;
 }
 
-.ethnicity-row input {
-  margin-right: 5px;
+.input-group input[type="number"] {
   flex: 1;
-}
-
-.add-ethnicity,
-.remove-ethnicity {
-  background-color: #2ecc71;
-  font-size: 16px;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.add-ethnicity:hover,
-.remove-ethnicity:hover {
-  background-color: #27ae60;
+  margin-left: 10px;
 }
 
 button {
@@ -56,56 +48,11 @@ button:hover {
 
 #results {
   margin-top: 20px;
-  display: none;
 }
 
 li {
   margin-bottom: 5px;
 }
-
-/* Media query for tablets and larger screens */
-@media screen and (min-width: 768px) {
-  form {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.add-ethnicity {
-  background-color: #2ecc71;
-  font-size: 16px;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.add-ethnicity:hover {
-  background-color: #27ae60;
-}
-
-.ethnicity-container {
-  margin-bottom: 10px;
-}
-/* ... existing CSS ... */
-
-footer {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #ccc;
-  font-size: 14px;
-  text-align: center;
-}
-
-footer a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-/* ... existing CSS ... */
 
 .explanation {
   margin-bottom: 40px;
@@ -131,4 +78,53 @@ footer a:hover {
   font-size: 24px;
   font-weight: bold;
   border-radius: 4px;
+}
+
+.input-groups-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.input-group-container {
+  flex: 1;
+  margin-bottom: 20px;
+  margin: 10px;
+}
+
+.add-button-container {
+  text-align: center;
+  padding-left: 10px;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+  .input-group-container {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* Media query for tablets and larger screens */
+@media screen and (min-width: 768px) {
+  form {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

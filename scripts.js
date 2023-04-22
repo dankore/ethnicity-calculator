@@ -1,135 +1,104 @@
-document.querySelectorAll('.add-ethnicity').forEach(button =>
-  button.addEventListener('click', function () {
-    const newRow = this.parentNode.cloneNode(true);
-    newRow.querySelector('.ethnicity').value = '';
-    newRow.querySelector('.percentage').value = '';
-    newRow.querySelector('.add-ethnicity').textContent = '-';
-    newRow.querySelector('.add-ethnicity').classList.add('remove-ethnicity');
-    newRow.querySelector('.add-ethnicity').classList.remove('add-ethnicity');
-    newRow.querySelector('.remove-ethnicity').addEventListener('click', function () {
-      this.parentNode.remove();
-    });
-    this.parentNode.parentNode.appendChild(newRow);
-  })
-);
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('ethnicity-form');
+  const fatherEthnicities = document.getElementById('father-ethnicities');
+  const motherEthnicities = document.getElementById('mother-ethnicities');
+  const resultsList = document.getElementById('ethnicity-list');
+  const errorMessage = document.createElement('p');
+  errorMessage.style.color = 'red';
 
-document.getElementById('ethnicity-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+  function createInputGroup(parentElement) {
+    const inputGroup = document.createElement('div');
+    inputGroup.classList.add('input-group');
 
-  if (!validatePercentageTotal('#father-ethnicities .percentage')) {
-    alert("Father's ethnicity percentages must add up to 100%.");
-    return;
+    const label = document.createElement('label');
+    label.textContent = 'Ethnicity: ';
+    inputGroup.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'Enter ethnicity';
+    label.appendChild(input);
+
+    const percentage = document.createElement('input');
+    percentage.type = 'number';
+    percentage.min = 0;
+    percentage.max = 100;
+    percentage.placeholder = 'Enter percentage';
+    inputGroup.appendChild(percentage);
+
+    parentElement.appendChild(inputGroup);
   }
 
-  if (!validatePercentageTotal('#mother-ethnicities .percentage')) {
-    alert("Mother's ethnicity percentages must add up to 100%.");
-    return;
+  for (let i = 0; i < 5; i++) {
+    createInputGroup(fatherEthnicities.querySelector('.ethnicity-container'));
+    createInputGroup(motherEthnicities.querySelector('.ethnicity-container'));
   }
 
-  const ethnicities = [];
-
-  document.querySelectorAll('#father-ethnicities .ethnicity-row').forEach(row => {
-    ethnicities.push({
-      name: row.querySelector('.ethnicity').value.toLowerCase(),
-      percentage: parseFloat(row.querySelector('.percentage').value),
-    });
-  });
-
-  document.querySelectorAll('#mother-ethnicities .ethnicity-row').forEach(row => {
-    ethnicities.push({
-      name: row.querySelector('.ethnicity').value.toLowerCase(),
-      percentage: parseFloat(row.querySelector('.percentage').value),
-    });
-  });
-
-  const aggregatedEthnicities = aggregateEthnicities(ethnicities);
-  const normalizedPercentages = normalizePercentages(aggregatedEthnicities);
-  displayEthnicityResults(normalizedPercentages);
-});
-
-function createEthnicityRow() {
-  const newRow = document.createElement("div");
-  newRow.classList.add("ethnicity-row");
-
-  newRow.innerHTML = `
-    <label>
-      Ethnicity:
-      <input type="text" class="ethnicity" required>
-    </label>
-    <label>
-      Percentage:
-      <input type="number" class="percentage" min="0" max="100" required>
-    </label>
-    <button type="button" class="remove-ethnicity">-</button>
-  `;
-
-  newRow.querySelector(".remove-ethnicity").addEventListener("click", function () {
-    this.parentNode.remove();
-  });
-
-  return newRow;
+function getTotalPercentage(inputGroups) {
+  return inputGroups.reduce((total, inputGroup) => {
+    const percentageInput = inputGroup.querySelector('input[type=number]');
+    if (percentageInput) {
+      const percentage = parseFloat(percentageInput.value);
+      return total + (isNaN(percentage) ? 0 : percentage);
+    }
+    return total;
+  }, 0);
 }
 
 
-document.querySelectorAll('.add-ethnicity').forEach(button =>
-  button.addEventListener('click', function () {
-    const parent = document.getElementById(this.dataset.parent);
-    const newRow = createEthnicityRow();
-    parent.querySelector('.ethnicity-container').appendChild(newRow);
-  })
-);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-// Add initial ethnicity rows
-document.getElementById("father-ethnicities").querySelector(".ethnicity-container").appendChild(createEthnicityRow());
-document.getElementById("mother-ethnicities").querySelector(".ethnicity-container").appendChild(createEthnicityRow());
+    const fatherInputs = Array.from(fatherEthnicities.querySelectorAll('.input-group'));
+    const motherInputs = Array.from(motherEthnicities.querySelectorAll('.input-group'));
 
+    const fatherTotalPercentage = getTotalPercentage(fatherInputs);
+    const motherTotalPercentage = getTotalPercentage(motherInputs);
 
-function normalizePercentages(aggregatedEthnicities) {
-  const totalPercentage = Object.values(aggregatedEthnicities).reduce((sum, percentage) => sum + percentage, 0);
-
-  const normalizedPercentages = {};
-
-  for (const [ethnicity, percentage] of Object.entries(aggregatedEthnicities)) {
-    normalizedPercentages[ethnicity] = (percentage / totalPercentage) * 100;
-  }
-
-  return normalizedPercentages;
-}
-
-function validatePercentageTotal(selector) {
-  const percentages = document.querySelectorAll(selector);
-  let totalPercentage = 0;
-
-  percentages.forEach(percentage => {
-    totalPercentage += parseFloat(percentage.value);
-  });
-
-  return totalPercentage === 100;
-}
-
-function aggregateEthnicities(ethnicities) {
-  const aggregatedEthnicities = {};
-
-  ethnicities.forEach(ethnicity => {
-    if (aggregatedEthnicities[ethnicity.name]) {
-      aggregatedEthnicities[ethnicity.name] += ethnicity.percentage;
+    if (Math.abs(fatherTotalPercentage - 100) > 1e-5 || Math.abs(motherTotalPercentage - 100) > 1e-5) {
+      errorMessage.textContent = "Error: Each parent's total percentage must equal 100%.";
+      form.appendChild(errorMessage);
+      return;
     } else {
-      aggregatedEthnicities[ethnicity.name] = ethnicity.percentage;
+      errorMessage.textContent = '';
+    }
+
+    let ethnicities = {};
+
+    fatherInputs.forEach(inputGroup => {
+      const ethnicityInput = inputGroup.querySelector('input[type=text]');
+      const percentageInput = inputGroup.querySelector('input[type=number]');
+
+      if (ethnicityInput && percentageInput) {
+        const ethnicity = ethnicityInput.value.trim();
+        const percentage = parseFloat(percentageInput.value);
+
+        if (ethnicity && !isNaN(percentage)) {
+          ethnicities[ethnicity] = (ethnicities[ethnicity] || 0) + percentage / 2;
+        }
+      }
+    });
+
+    motherInputs.forEach(inputGroup => {
+      const ethnicityInput = inputGroup.querySelector('input[type=text]');
+      const percentageInput = inputGroup.querySelector('input[type=number]');
+
+      if (ethnicityInput && percentageInput) {
+        const ethnicity = ethnicityInput.value.trim();
+        const percentage = parseFloat(percentageInput.value);
+
+        if (ethnicity && !isNaN(percentage)) {
+          ethnicities[ethnicity] = (ethnicities[ethnicity] || 0) + percentage / 2;
+        }
+      }
+    });
+
+    resultsList.innerHTML = '';
+    for (const ethnicity in ethnicities) {
+      const li = document.createElement('li');
+      li.textContent = `${ethnicity}: ${ethnicities[ethnicity].toFixed(1)}%`;
+      resultsList.appendChild(li);
     }
   });
 
-  return aggregatedEthnicities;
-}
-
-function displayEthnicityResults(aggregatedEthnicities) {
-  const list = document.getElementById('ethnicity-list');
-  list.innerHTML = '';
-
-  Object.entries(aggregatedEthnicities).forEach(([name, percentage]) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = `${name}\t${percentage.toFixed(2)}%`;
-    list.appendChild(listItem);
-  });
-
-  document.getElementById('results').style.display = 'block';
-}
+});
