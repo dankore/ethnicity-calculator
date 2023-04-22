@@ -118,10 +118,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     resultsList.innerHTML = '';
-    for (const ethnicity in ethnicities) {
-      const li = document.createElement('li');
-      li.textContent = `${capitalizeFirstLetter(ethnicity)}: ${ethnicities[ethnicity].toFixed(1)}%`;
-      resultsList.appendChild(li);
-    }
+
+    // Convert the ethnicities object to an array and sort it by percentage (descending)
+    const sortedEthnicities = Object.entries(ethnicities).sort((a, b) => b[1] - a[1]);
+
+    // Create a table to display the results
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
+    const headerRow = document.createElement('tr');
+    const header1 = document.createElement('th');
+    const header2 = document.createElement('th');
+
+    header1.textContent = 'Ethnicity';
+    header2.textContent = 'Percentage';
+    headerRow.appendChild(header1);
+    headerRow.appendChild(header2);
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    resultsList.appendChild(table);
+
+    // Add the sorted results to the table
+    sortedEthnicities.forEach(([ethnicity, percentage]) => {
+      const row = document.createElement('tr');
+      const cell1 = document.createElement('td');
+      const cell2 = document.createElement('td');
+
+      cell1.textContent = capitalizeFirstLetter(ethnicity);
+      cell2.textContent = `${percentage.toFixed(1)}%`;
+
+      row.appendChild(cell1);
+      row.appendChild(cell2);
+      tbody.appendChild(row);
+    });
+
   });
 });
