@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const input = document.createElement('input');
     input.type = 'text';
-    input.placeholder = 'Ethnicity';
-    label.appendChild(input);
 
     const percentage = document.createElement('input');
     percentage.type = 'number';
