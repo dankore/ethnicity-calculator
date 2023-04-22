@@ -145,6 +145,22 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.add-ethnicity {
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.add-ethnicity:hover {
+  background-color: #2980b9;
+}
+
+
 /* Media query for smaller screens */
 @media (max-width: 767px) {
   .input-group-container {

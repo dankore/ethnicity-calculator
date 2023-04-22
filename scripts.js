@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
   addMotherEthnicityBtn.type = 'button';
   addMotherEthnicityBtn.classList.add('add-ethnicity');
 
+  // Initialize the page with one ethnicity input box for each parent
+  createInputGroup(fatherEthnicities.querySelector('.ethnicity-container'));
+  createInputGroup(motherEthnicities.querySelector('.ethnicity-container'));
+
   fatherEthnicities.appendChild(addFatherEthnicityBtn);
   motherEthnicities.appendChild(addMotherEthnicityBtn);
 
