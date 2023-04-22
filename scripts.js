@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const inputGroup = document.createElement('div');
     inputGroup.classList.add('input-group');
 
-    const label = document.createElement('label');
-    label.textContent = 'Ethnicity: ';
-    inputGroup.appendChild(label);
-
     const input = document.createElement('input');
     input.type = 'text';
     input.placeholder = 'Ethnicity';
