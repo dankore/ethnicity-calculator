@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const input = document.createElement('input');
     input.type = 'text';
-    input.placeholder = 'Enter ethnicity';
+    input.placeholder = 'Ethnicity';
     label.appendChild(input);
 
     const percentage = document.createElement('input');
     percentage.type = 'number';
     percentage.min = 0;
     percentage.max = 100;
-    percentage.placeholder = 'Enter percentage';
+    percentage.placeholder = 'Percentage';
     inputGroup.appendChild(percentage);
 
     parentElement.appendChild(inputGroup);

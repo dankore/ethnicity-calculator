@@ -28,70 +28,66 @@
     <!-- <meta name="twitter:image" content="https://how-nigerian-are-you.dankoresoft.com/path/to/your/image.jpg"> -->
   </head>
   <body>
-    <div class="branding">
-      <h2>How Nigerian Are You?</h2>
-    </div>
+    <div class="page-container">
+      <div class="left-section">
+        <div class="branding">
+          <h2>How Nigerian Are You?</h2>
+        </div>
 
-    <h1>Ethnicity Calculator</h1>
+        <h1>Ethnicity Calculator</h1>
 
-    <form id="ethnicity-form">
-      <div class="input-groups-wrapper">
-        <div class="input-group-container">
-          <div id="father-ethnicities">
-            <h3>Father's Ethnicities</h3>
-            <div class="ethnicity-container">
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-              <div class="input-group"></div>
+        <form id="ethnicity-form">
+          <div class="input-groups-wrapper">
+            <div class="input-group-container">
+              <div id="father-ethnicities">
+                <h3>Father's Ethnicities</h3>
+                <div class="ethnicity-container"></div>
+              </div>
+            </div>
+            <div class="input-group-container">
+              <div id="mother-ethnicities">
+                <h3>Mother's Ethnicities</h3>
+                <div class="ethnicity-container"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group-container">
-          <div id="mother-ethnicities">
-            <h3>Mother's Ethnicities</h3>
-            <div class="ethnicity-container">
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-              <div class="input-group"></div>
-            </div>
+          <p class="note">* Make sure the total percentage for each parent equals 100%.</p>
+          <div class="add-button-container">
+            <button type="submit">Calculate Ethnicity</button>
           </div>
+        </form>
+
+        <div id="results">
+          <h2>Results of Ethnic Makeup:</h2>
+          <ul id="ethnicity-list"></ul>
         </div>
       </div>
-      <div class="add-button-container">
-        <button type="submit">Calculate Ethnicity</button>
+
+      <div class="right-section">
+        <section class="explanation">
+          <h2>How to Determine Your Parents' Ethnic Makeup</h2>
+          <p>To determine your parents' ethnic makeup, you can start by having a conversation with them about their ancestry and background. Ask questions about their parents, grandparents, e.t.c.</p>
+
+          <h3>Example:</h3>
+          <p>Let's say your father is 50% Fulani and 50% Hausa, and your mother is 25% Hausa, 25% Igala, and 50% Idoma. To calculate your ethnicity breakdown, you would input the following:</p>
+          <ul>
+            <li>Father's Ethnicity 1: Fulani - 50%</li>
+            <li>Father's Ethnicity 2: Hausa - 50%</li>
+
+            <li>Mother's Ethnicity 2: Igala - 50%</li>
+            <li>Mother's Ethnicity 1: Hausa - 25%</li>
+            <li>Mother's Ethnicity 3: Idoma - 25%</li>
+          </ul>
+          <p>Based on this information, your ethnicity breakdown would be:</p>
+          <ul>
+            <li>Hausa: 37.5%</li>
+            <li>Fulani: 25%</li>
+            <li>Igala: 25%</li>
+            <li>Idoma: 12.5%</li>
+          </ul>
+        </section>
       </div>
-    </form>
-
-    <div id="results">
-      <h2>Ethnic Makeup</h2>
-      <ul id="ethnicity-list"></ul>
     </div>
-
-    <section class="explanation">
-      <h2>How to Determine Your Parents' Ethnic Makeup</h2>
-      <p>To determine your parents' ethnic makeup, you can start by having a conversation with them about their ancestry and background. Ask questions about their parents, grandparents, e.t.c.</p>
-
-      <h3>Example:</h3>
-      <p>Let's say your father is 50% Fulani and 50% Hausa, and your mother is 25% Hausa, 25% Igala, and 50% Idoma. To calculate your ethnicity breakdown, you would input the following:</p>
-      <ul>
-        <li>Father's Ethnicity 1: Fulani - 50%</li>
-        <li>Father's Ethnicity 2: Hausa - 50%</li>
-        <li>Mother's Ethnicity 1: Hausa - 25%</li>
-        <li>Mother's Ethnicity 2: Igala - 25%</li>
-        <li>Mother's Ethnicity 3: Idoma - 50%</li>
-      </ul>
-      <p>Based on this information, your ethnicity breakdown would be:</p>
-      <ul>
-        <li>Fulani: 25%</li>
-        <li>Hausa: 37.5%</li>
-        <li>Igala: 12.5%</li>
-        <li>Idoma: 25%</li>
-      </ul>
-    </section>
 
     <footer>
       <p>Created by <a href="https://www.dankoresoft.com/" target="_blank">Dankore Software LLC, USA</a></p>
