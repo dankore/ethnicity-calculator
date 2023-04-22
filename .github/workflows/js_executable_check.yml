@@ -1,22 +1,17 @@
-name: JavaScript Executable Check
+name: JS Executable Check
 
 on: push
 
 jobs:
-  check-executable:
+  check-js-executable:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Test JavaScript executability
-      run: node scripts.js # Replace 'client.js' with the path to your client JavaScript file
+    - name: Check if JavaScript is executable
+      run: |
+        echo "console.log('JS execution check');" > check.js
+        cat scripts.js >> check.js
+        node check.js
