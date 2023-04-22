@@ -1,0 +1,25 @@
+name: JavaScript Executable Check
+
+on:
+  push:
+    paths:
+      - '**.js' # Run this workflow when any JavaScript files are pushed
+
+jobs:
+  check-executable:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Test JavaScript executability
+      run: node scripts.js # Replace 'client.js' with the path to your client JavaScript file
