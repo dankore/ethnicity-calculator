@@ -6,22 +6,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const errorMessage = document.createElement('p');
   errorMessage.style.color = 'red';
 
-  function createInputGroup(parentElement) {
-    const inputGroup = document.createElement('div');
-    inputGroup.classList.add('input-group');
+ function createInputGroup(parentElement) {
+  const inputGroup = document.createElement('div');
+  inputGroup.classList.add('input-group');
 
-    const input = document.createElement('input');
-    input.type = 'text';
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.placeholder = 'Ethnicity';
+  inputGroup.appendChild(input);
 
-    const percentage = document.createElement('input');
-    percentage.type = 'number';
-    percentage.min = 0;
-    percentage.max = 100;
-    percentage.placeholder = 'Percentage';
-    inputGroup.appendChild(percentage);
+  const percentage = document.createElement('input');
+  percentage.type = 'number';
+  percentage.min = 0;
+  percentage.max = 100;
+  percentage.placeholder = 'Percentage';
+  inputGroup.appendChild(percentage);
 
-    parentElement.appendChild(inputGroup);
-  }
+  parentElement.appendChild(inputGroup);
+}
+
 
   // Add "Add Ethnicity" buttons
   const addFatherEthnicityBtn = document.createElement('button');
