@@ -6,6 +6,32 @@ body {
   background-color: #f8f9fa;
 }
 
+.advertisement {
+  background-color: #0047b3;
+  color: #ffe600;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px; 
+  text-align: center; 
+  padding: 20px; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  display: block; 
+  margin: 20px 0; 
+  text-decoration: none; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.advertisement:hover {
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Larger shadow on hover for depth */
+}
+
+.advertisement span {
+  text-decoration: underline; /* Underline for the clickable text */
+}
+
 
 .section-container {
   display: flex;
