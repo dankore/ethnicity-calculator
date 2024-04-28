@@ -117,7 +117,7 @@ body {
 }
 
 .tribe-entry input[type="number"] {
-  width: 100px; /* Adjust width as necessary */
+  width: fit-content;
 }
 
 .btn-add {

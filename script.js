@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="error-message"></div>
       </div>
       <div class="input-group">
-        <input type="number" placeholder="Percent" min="0" max="100">
+        <input type="number" placeholder="Percent" min="0" max="100%">
         <div class="error-message"></div>
       </div>
       <button type="button" class="btn-remove">Remove</button>
