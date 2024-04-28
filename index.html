@@ -1,73 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ethnicity Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div id="calculator">
-        <form id="ethnicityForm">
-            <div class="parent" id="mother">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Find out your Nigerian ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' and grandparents' ethnicities."
+    />
+    <meta
+      name="keywords"
+      content="Nigerian, ethnicity calculator, ethnic makeup, Nigerian ethnicity, heritage, culture, genealogy"
+    />
+
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta
+      property="og:title"
+      content="How Nigerian Are You? - Ethnicity Calculator"
+    />
+    <meta
+      property="og:description"
+      content="Find out your Nigerian ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' and grandparents' ethnicities."
+    />
+    <meta
+      property="og:url"
+      content="https://how-nigerian-are-you.dankoresoft.com/"
+    />
+    <meta property="og:type" content="website" />
+    <!-- Add an image to be used when sharing on social media (Recommended size: 1200x630) -->
+    <meta property="og:image" content="./image.png" />
+
+    <!-- Twitter Card meta tags for Twitter sharing -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="How Nigerian Are You? - Ethnicity Calculator"
+    />
+    <meta
+      name="twitter:description"
+      content="Find out your Nigerian ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' and grandparents' ethnicities."
+    />
+    <meta
+      name="twitter:url"
+      content="https://how-nigerian-are-you.dankoresoft.com/"
+    />
+    <!-- Add an image to be used when sharing on Twitter (Recommended size: 1200x675) -->
+    <meta name="twitter:image" content="./image.png" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/icons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/icons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/icons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/icons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/icons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/icons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/icons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/icons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/icons/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon.png" />
+    <link rel="manifest" href="/icons/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YDGB4Z1HWK"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-YDGB4Z1HWK");
+    </script>
+  </head>
+  <body>
+    <main>
+      <header class="branding">
+        <h2>How Nigerian Are You?</h2>
+        <h1>Ethnicity Calculator</h1>
+      </header>
+
+      <div class="section-container">
+        <!-- left hand side 70% -->
+        <section class="left-section">
+          <div id="calculator">
+            <form id="ethnicityForm">
+              <div class="parent" id="mother">
                 <h2>Mother</h2>
                 <div class="tribe-entry">
-                    <div class="input-group">
-                        <input type="text" placeholder="Tribe 1" name="mother_tribe1">
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" placeholder="Percent" name="mother_percent1">
-                        <div class="error-message"></div>
-                    </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Tribe 1"
+                      name="mother_tribe1"
+                    />
+                    <div class="error-message"></div>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      placeholder="Percent"
+                      name="mother_percent1"
+                    />
+                    <div class="error-message"></div>
+                  </div>
                 </div>
                 <div class="tribe-entry">
-                    <div class="input-group">
-                        <input type="text" placeholder="Tribe 2 (optional)" name="mother_tribe2">
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" placeholder="Percent (optional)" name="mother_percent2">
-                        <div class="error-message"></div>
-                    </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Tribe 2 (optional)"
+                      name="mother_tribe2"
+                    />
+                    <div class="error-message"></div>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      placeholder="Percent (optional)"
+                      name="mother_percent2"
+                    />
+                    <div class="error-message"></div>
+                  </div>
                 </div>
-                <button type="button" class="btn-add">Add Another Mother Tribe/Ethnicity</button>
-            </div>
-            
-            <div class="parent" id="father">
+                <button type="button" class="btn-add">
+                  Add Another Mother Tribe/Ethnicity
+                </button>
+              </div>
+
+              <div class="parent" id="father">
                 <h2>Father</h2>
                 <div class="tribe-entry">
-                    <div class="input-group">
-                        <input type="text" placeholder="Tribe 1" name="father_tribe1">
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" placeholder="Percent" name="father_percent1">
-                        <div class="error-message"></div>
-                    </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Tribe 1"
+                      name="father_tribe1"
+                    />
+                    <div class="error-message"></div>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      placeholder="Percent"
+                      name="father_percent1"
+                    />
+                    <div class="error-message"></div>
+                  </div>
                 </div>
                 <div class="tribe-entry">
-                    <div class="input-group">
-                        <input type="text" placeholder="Tribe 2 (optional)" name="father_tribe2">
-                        <div class="error-message"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" placeholder="Percent (optional)" name="father_percent2">
-                        <div class="error-message"></div>
-                    </div>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Tribe 2 (optional)"
+                      name="father_tribe2"
+                    />
+                    <div class="error-message"></div>
+                  </div>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      placeholder="Percent (optional)"
+                      name="father_percent2"
+                    />
+                    <div class="error-message"></div>
+                  </div>
                 </div>
-                <button type="button" class="btn-add">Add Another Father Tribe/Ethnicity</button>
+                <button type="button" class="btn-add">
+                  Add Another Father Tribe/Ethnicity
+                </button>
+              </div>
+
+              <button type="submit" id="calculate">Calculate</button>
+            </form>
+
+            <div id="result">
+              <h2>Me</h2>
+              <!-- The result will be displayed here -->
             </div>
+          </div>
+        </section>
 
-            <button type="submit" id="calculate">Calculate</button>
-        </form>
-        
-        <div id="result">
-            <h2>Me</h2>
-            <!-- The result will be displayed here -->
-        </div>
-    </div>
+        <section class="right-section">
+          Iste earum fugiat deleniti fermentum dui, ultricies, quibusdam etiam
+          laboris placeat praesentium in reiciendis repellendus praesent ornare.
+        </section>
+      </div>
+    </main>
 
-    <script src="script.js"></script> 
-</body>
+    <footer>
+      <p>
+        Created by
+        <a href="https://www.dankoresoft.com/" target="_blank"
+          >Dankore Software LLC, USA</a
+        >
+      </p>
+      <p>
+        Follow me on
+        <a href="https://twitter.com/adamuMdankore" target="_blank">Twitter</a>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
