@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto; /* Add this line */
+}
+
+
+.left-section,
+.right-section {
+  padding: 20px;
+}
+
+.left-section {
+  flex: 2;
+}
+
+.right-section {
+  flex: 1;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.input-group input[type=text] {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.input-group input[type=number] {
+  width: 70px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#results {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+
+.explanation {
+  margin-bottom: 40px;
+}
+
+.explanation h2 {
+  margin-bottom: 20px;
+}
+
+.explanation p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.branding {
+  text-align: center;
+  background-image: linear-gradient(to right, #008751 25%, #ffffff 25%, #ffffff 75%, #008751 75%);
+  color: #0d0722;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+li {
+  margin-top: 10px;
+}
+
+
+.note {
+  font-size: 14px;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-groups-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.input-group-container {
+  flex: 1;
+  margin-bottom: 20px;
+  margin: 10px;
+}
+
+.add-button-container {
+  text-align: center;
+  padding-left: 10px;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.add-ethnicity {
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#ethnicity-list{
+  margin-left: -40px;
+}
+
+.add-ethnicity:hover {
+  background-color: #2980b9;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+#consultation-section {
+  background-color: #f7f7f7;
+  padding: 30px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+#consultation-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#consultation-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+#whatsapp-button {
+  display: inline-block;
+  background-color: #25D366;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+  .input-group-container {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* Media query for tablets and larger screens */
+@media screen and (min-width: 1024px) {
+  .page-container {
+    flex-direction: row;
+  }
+}
