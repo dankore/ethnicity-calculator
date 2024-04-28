@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  
+
   function addTribeEntry(parentId) {
     const parentDiv = document.getElementById(parentId);
     const newEntry = document.createElement('div');
@@ -10,55 +10,68 @@ document.addEventListener('DOMContentLoaded', function() {
       <button type="button" class="btn-remove">Remove</button>
     `;
 
-    // Add event listener to the remove button of this new entry
+    // Attach event listener to the remove button in the new entry
     newEntry.querySelector('.btn-remove').addEventListener('click', function() {
       this.parentElement.remove();
     });
 
-    // Insert the new entry before the add button
     const addButton = parentDiv.querySelector('.btn-add');
     parentDiv.insertBefore(newEntry, addButton);
   }
 
-  function removeTribeEntry(event) {
-    event.target.parentElement.remove();
-  }
+  document.getElementById('ethnicityForm').addEventListener('click', function(event) {
+    if (event.target.classList.contains('btn-add')) {
+      const parentId = event.target.closest('.parent').id;
+      addTribeEntry(parentId);
+    } else if (event.target.id === 'calculate') {
+      calculateEthnicity(event);
+    }
+  });
 
   function calculateEthnicity(event) {
     event.preventDefault(); // Prevent form submission
-  
-    // Gather all the tribes and percentages
+
+    const motherValid = validateParentEntries(document.querySelectorAll('#mother .tribe-entry'));
+    const fatherValid = validateParentEntries(document.querySelectorAll('#father .tribe-entry'));
+
+    if (!motherValid || !fatherValid) {
+      alert("Please ensure each tribe has a name and its percentage totals 100% for each parent.");
+      return; // Stop the function if validation fails
+    }
+
     let tribes = {};
     gatherTribes('mother', tribes);
     gatherTribes('father', tribes);
-  
-    // Normalize and prepare results if total percentage exceeds 100%
-    let totalPercent = Object.values(tribes).reduce((sum, percent) => sum + percent, 0);
-    if (totalPercent !== 100) {
-      for (let tribe in tribes) {
-        tribes[tribe] = (tribes[tribe] / totalPercent) * 100;
-      }
-    }
-  
+
     displayResults(tribes);
   }
-  
+
+  function validateParentEntries(entries) {
+    let totalPercentage = 0;
+    for (let entry of entries) {
+      const tribeInput = entry.querySelector('input[type="text"]');
+      const percentInput = entry.querySelector('input[type="number"]');
+      const percent = parseFloat(percentInput.value) || 0;
+      if (percent > 0 && !tribeInput.value.trim()) {
+        return false;
+      }
+      totalPercentage += percent;
+    }
+    return totalPercentage === 100;
+  }
+
   function gatherTribes(parentId, tribes) {
     const entries = document.querySelectorAll(`#${parentId} .tribe-entry`);
     entries.forEach(entry => {
       const tribe = entry.querySelector('input[type="text"]').value.trim();
       let percent = parseFloat(entry.querySelector('input[type="number"]').value);
-      percent = isNaN(percent) ? 0 : percent / 2; // Divide by 2 to get the child's inheritance
+      percent = isNaN(percent) ? 0 : percent / 2; // Child inherits half
       if (tribe && percent > 0) {
-        if (tribes[tribe]) {
-          tribes[tribe] += percent; // If the tribe already exists, add the percentage
-        } else {
-          tribes[tribe] = percent; // If it's a new tribe, set the percentage
-        }
+        tribes[tribe] = tribes[tribe] ? tribes[tribe] + percent : percent;
       }
     });
   }
-  
+
   function displayResults(tribes) {
     const resultDiv = document.getElementById('result');
     let resultHTML = '<h2>Me</h2>';
@@ -68,26 +81,5 @@ document.addEventListener('DOMContentLoaded', function() {
     resultDiv.innerHTML = resultHTML;
     resultDiv.style.display = 'block';
   }
-  
-
-  function validatePercentages(percentageInputs) {
-    let total = 0;
-    percentageInputs.forEach(input => {
-      total += parseFloat(input.value) || 0;
-    });
-    return total === 100;
-  }
-
-  // Event delegation for dynamic elements
-  document.getElementById('ethnicityForm').addEventListener('click', function(event) {
-    if (event.target.classList.contains('btn-add')) {
-      const parentId = event.target.closest('.parent').id;
-      addTribeEntry(parentId);
-    } else if (event.target.classList.contains('btn-remove')) {
-      removeTribeEntry(event);
-    } else if (event.target.id === 'calculate') {
-      calculateEthnicity(event);
-    }
-  });
 
 });
