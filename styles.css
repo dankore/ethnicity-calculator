@@ -26,21 +26,34 @@ body {
 }
 
 .tribe-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+.input-group:last-child {
+  margin-right: 0;
 }
 
 .tribe-entry input[type="text"],
 .tribe-entry input[type="number"] {
-  width: calc(50% - 4px);
   padding: 10px;
-  margin-right: 8px;
   border: 1px solid #ced4da;
   border-radius: 4px;
   font-size: 16px;
+  margin-bottom: 5px; /* Space for error message */
 }
 
 .tribe-entry input[type="number"] {
-  width: calc(25% - 4px);
+  width: 100px; /* Adjust width as necessary */
 }
 
 .btn-add {
@@ -51,6 +64,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  align-self: flex-start; /* Align button to the top */
+  margin-top: 30px; /* To align with inputs */
 }
 
 .btn-add:hover {
@@ -67,7 +82,7 @@ body {
   font-size: 18px;
   display: block;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 #calculate:hover {
@@ -84,4 +99,12 @@ body {
 
 #result h2 {
   color: #495057;
+}
+
+.error-message {
+  color: #d9534f; /* Bootstrap's 'btn-danger' color for reference */
+  font-size: 0.8em;
+  height: 1em;
+  margin-bottom: 5px;
+  visibility: hidden;
 }
