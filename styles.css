@@ -1,8 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
   padding: 20px;
-  padding-top: 75px; /* Increased top padding to accommodate for the banner */
+  padding-top: 75px;
 }
 
 .advertisement {
@@ -49,17 +48,20 @@ body {
 .right-section {
   flex: 1;
 }
-
 #calculator {
   background: #fff;
   border-radius: 8px;
-  /* max-width: 500px; */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
   padding: 20px;
 }
 
+
 .branding {
-  text-align: center;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   color: #0d0722;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   font-size: 24px;
