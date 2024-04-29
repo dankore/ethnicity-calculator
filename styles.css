@@ -89,7 +89,7 @@ main {
   padding-bottom: 5px
 }
 
-.tribe-entry {
+.ethnicity-entry {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -121,8 +121,8 @@ main {
   margin-right: 0
 }
 
-.tribe-entry input[type="text"],
-.tribe-entry input[type="number"] {
+.ethnicity-entry input[type="text"],
+.ethnicity-entry input[type="number"] {
   padding: 10px;
   border: 1px solid #ced4da;
   border-radius: 4px;
@@ -130,7 +130,7 @@ main {
   margin-bottom: 5px
 }
 
-.tribe-entry input[type="number"] {
+.ethnicity-entry input[type="number"] {
   width: fit-content
 }
 
