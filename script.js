@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.querySelector('.advertisement').style.top = "-60px"; /* Adjust based on the actual height of your banner */
+      document.querySelector('.advertisement').style.top = "-45px";
     } else {
       document.querySelector('.advertisement').style.top = "0";
     }
