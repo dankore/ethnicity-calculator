@@ -92,8 +92,22 @@ main {
 .tribe-entry {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 10px
+}
+
+.btn-remove {
+  padding: 10px 20px;
+  background-color: #dc3545; 
+  color: white;
+  border: 1px solid #dc3545; 
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap; 
+}
+
+.btn-remove:hover {
+  background-color: #c82333;
 }
 
 .input-group {
