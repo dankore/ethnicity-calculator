@@ -107,6 +107,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     resultDiv.innerHTML = resultHTML;
     resultDiv.style.display = 'block';
+
+    launchConfetti();
+  }
+
+  function launchConfetti() {
+    confetti({
+      spread: 70,
+      particleCount: 100,
+      startVelocity: 30,
+      origin: { y: 0.6 }
+    });
   }
 
   window.onscroll = function() {
@@ -122,6 +133,3 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
-
-
-
