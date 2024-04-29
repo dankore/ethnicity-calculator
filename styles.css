@@ -1,15 +1,19 @@
 body {
   font-family: 'Arial', sans-serif;
-  padding-top: 60px
+  padding-top: 45px;
+  margin: 0;
 }
 
+main {
+  margin: 0;
+}
 .advertisement {
   background-color: #0047b3;
   color: #ffe600;
   font-family: 'Arial', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
-  padding: 15px 10px;
+  padding: 10px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +74,7 @@ body {
 .parent {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #e9ecef;
+  background-color: #f8f9fa;;
   border-radius: 5px
 }
 
@@ -162,18 +166,24 @@ body {
 }
 
 footer {
-  padding: 10px;
-  text-align: center
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
+  background-color: #f8f9fa;
+  color: #333;
+  border-top: 1px solid #eaeaea;
 }
 
 footer a {
   color: #3498db;
-  text-decoration: none
+  text-decoration: none;
+  margin: 0 5px;
 }
 
 footer a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
+
 
 @media (max-width:767px) {
   .input-group-container {
