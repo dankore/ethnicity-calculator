@@ -109,6 +109,18 @@ document.addEventListener('DOMContentLoaded', function() {
     resultDiv.style.display = 'block';
   }
 
+  window.onscroll = function() {
+    scrollFunction();
+  };
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      document.querySelector('.advertisement').style.top = "-60px"; /* Adjust based on the actual height of your banner */
+    } else {
+      document.querySelector('.advertisement').style.top = "0";
+    }
+  }
+
 });
 
 
