@@ -276,7 +276,7 @@ footer a:hover {
 
 #instructions ul ul li:before {
   content: "\2022";
-  color: #007bff;
+  color: var(--primary-color);
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -285,7 +285,7 @@ footer a:hover {
 
 #disclaimer {
   background-color: #f8f9fa;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid var(--primary-color);
   padding: 10px 20px;
   margin: 20px 0;
   font-size: 14px;
