@@ -138,24 +138,25 @@ main {
 }
 
 .btn-add {
-  background-color: #000000; /* Black for normal state */
-  border: none;
-  padding: 10px 15px;
-  color: white; /* Ensuring high contrast with the black background */
+  background-color: #f3efef;
+  color: #131212;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 0.9rem;
+  padding: 8px 12px;
   border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  align-self: flex-start;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.btn-add:hover, .btn-add:focus {
-  background-color: #333333; /* Dark gray for hover/focus states */
-  outline: none;
+.btn-add:hover {
+  background-color: #d4d4d4;
+  color: #000;
 }
+
 
 .btn-add:focus {
-  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.5); /* Dark gray focus shadow for accessibility */
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.5);
 }
 
 
