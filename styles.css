@@ -2,7 +2,7 @@
   --dim-color: #e6eaee;
   --primary-color: #00796B; 
   --button-hover: #004D40; 
-  --text-color: #FFFFFF;
+  --text-white: #FFFFFF;
 }
 
 body {
@@ -11,13 +11,9 @@ body {
   margin: 0;
 }
 
-main {
-  margin: 0;
-}
-
 .advertisement {
-  background-color: #0047b3;
-  color: #ffe600;
+  background-color: var(--primary-color);
+  color: var(--text-white);
   font-family: 'Arial', sans-serif;
   font-size: 15px;
   text-align: center;
@@ -69,14 +65,20 @@ main {
 
 .header-banner {
   display: flex;
-  margin: 0 auto;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   color: #0d0722;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
-  font-size: 15px;
+  font-size: 25px;
   font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+h1 {
+  margin: 10px 0 0;
 }
 
 .parent {
@@ -162,7 +164,7 @@ main {
 
 #calculate {
   background-color: var(--primary-color);
-  color: var(--text-color);
+  color: var(--text-white);
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -178,9 +180,8 @@ main {
 }
 
 #calculate:focus {
-  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.5); /* Blue focus shadow for accessibility */
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.5); 
 }
-
 
 
 #result {
@@ -221,23 +222,6 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media (max-width:767px) {
-  .input-group-container {
-    flex: none;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width:1024px) {
-  .section-container {
-    flex-direction: row;
-  }
-
-  .right-section {
-    padding-top: 0;
-  }
-}
-
 #instructions details {
   border-radius: 4px;
   padding: 10px;
@@ -250,10 +234,30 @@ footer a:hover {
   font-weight: bold;
   margin-bottom: 10px;
   cursor: pointer;
+  position: relative; /* Position relative for placing the pseudo-element */
+  padding-right: 30px; /* Add padding to make space for the icon */
 }
 
+/* Re-enable the default marker for a consistent appearance across browsers */
 #instructions summary::-webkit-details-marker {
-  display: none;
+  display: revert;
+}
+
+#instructions summary::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%2300796B"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+  background-size: cover;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+details[open] #instructions summary::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 #instructions div {
@@ -284,6 +288,7 @@ footer a:hover {
   margin-left: -1em;
 }
 
+
 #disclaimer {
   background-color: #f8f9fa;
   border-left: 4px solid var(--primary-color);
@@ -299,4 +304,26 @@ footer a:hover {
 .icon-link::after {
   content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>');
   margin-left: 8px; 
+}
+
+
+@media (max-width:767px) {
+  .input-group-container {
+    flex: none;
+    width: 100%;
+  }
+
+  .header-banner {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .section-container {
+    flex-direction: row;
+  }
+
+  .right-section {
+    padding-top: 0;
+  }
 }
