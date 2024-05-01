@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://ethnicity-calculator.dankoresoft.com/sitemap.xml
