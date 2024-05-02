@@ -1,18 +1,33 @@
 :root {
   --dim-color: #e6eaee;
-  --primary-color: #00796B; 
-  --button-hover: #004D40; 
+  --primary-color: #00796B;
+  --button-hover: #004D40;
   --text-white: #FFFFFF;
+  --background-color: #FFFFFF;
+  --text-color: #333333;
+  --advertisement-bg-color: var(--primary-color);
+}
+
+[data-theme="dark"] {
+  --dim-color: #333333;
+  --primary-color: #26A69A;
+  --button-hover: #00796B;
+  --text-white: #FFFFFF;
+  --background-color: #121212;
+  --text-color: #E0E0E0;
+  --advertisement-bg-color: #004D40;
 }
 
 body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: 'Arial', sans-serif;
   padding-top: 45px;
   margin: 0;
 }
 
 .advertisement {
-  background-color: var(--primary-color);
+  background-color: var(--advertisement-bg-color);
   color: var(--text-white);
   font-family: 'Arial', sans-serif;
   font-size: 15px;
@@ -29,10 +44,6 @@ body {
   left: 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-}
-
-.advertisement span {
-  display: inline;
 }
 
 .section-container {
@@ -101,20 +112,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-.btn-remove {
-  padding: 10px 20px;
-  background-color: #dc3545; 
-  color: white;
-  border: 1px solid #dc3545; 
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-remove:hover {
-  background-color: #c82333;
-}
-
 .input-group {
   display: flex;
   flex-direction: column;
@@ -156,11 +153,9 @@ h1 {
   color: #000;
 }
 
-
 .btn-add:focus {
   box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.5);
 }
-
 
 #calculate {
   background-color: var(--primary-color);
@@ -175,14 +170,13 @@ h1 {
 }
 
 #calculate:hover, #calculate:focus {
-  background-color:var(--primary-color);
+  background-color: var(--button-hover);
   outline: none;
 }
 
 #calculate:focus {
   box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.5); 
 }
-
 
 #result {
   margin-top: 20px;
@@ -222,88 +216,49 @@ footer a:hover {
   text-decoration: underline;
 }
 
-#instructions details {
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background: #fff;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-#instructions summary {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  cursor: pointer;
-  position: relative; /* Position relative for placing the pseudo-element */
-  padding-right: 30px; /* Add padding to make space for the icon */
-}
-
-/* Re-enable the default marker for a consistent appearance across browsers */
-#instructions summary::-webkit-details-marker {
-  display: revert;
-}
-
-#instructions summary::after {
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%2300796B"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
-  background-size: cover;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
-}
-
-details[open] #instructions summary::after {
-  transform: translateY(-50%) rotate(180deg);
-}
-
-#instructions div {
-  margin-top: 10px;
-  line-height: 1.6;
-}
-
-#instructions ul {
-  padding-left: 20px;
-}
-
-#instructions h3 {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-#instructions ul ul {
-  list-style-type: none;
-  padding-left: 20px;
-}
-
-#instructions ul ul li:before {
-  content: "\2022";
-  color: var(--primary-color);
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-
-
-#disclaimer {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #f8f9fa;
-  border-left: 4px solid var(--primary-color);
   padding: 10px 20px;
-  margin: 20px 0;
-  font-size: 14px;
 }
 
-#disclaimer strong {
-  font-weight: bold;
+.logo img {
+  height: 50px;
 }
 
-.icon-link::after {
-  content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>');
-  margin-left: 8px; 
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  background-color: #d0d0d0;
 }
 
 

@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-  
+document.addEventListener('DOMContentLoaded', function () {
+  setInitialTheme();
+  bindThemeToggleButtons();
+
   function addEthnicityEntry(parentId) {
     const parentDiv = document.getElementById(parentId);
     const newEntry = document.createElement('div');
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
 
     // Attach event listener to the remove button in the new entry
-    newEntry.querySelector('.btn-remove').addEventListener('click', function() {
+    newEntry.querySelector('.btn-remove').addEventListener('click', function () {
       this.parentElement.remove();
     });
 
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     parentDiv.insertBefore(newEntry, addButton);
   }
 
-  document.getElementById('ethnicityForm').addEventListener('click', function(event) {
+  document.getElementById('ethnicityForm').addEventListener('click', function (event) {
     if (event.target.classList.contains('btn-add')) {
       const parentId = event.target.closest('.parent').id;
       addEthnicityEntry(parentId);
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault(); // Prevent form submission
 
     // Clear previous errors
-    document.querySelectorAll('.error-message').forEach(function(element) {
+    document.querySelectorAll('.error-message').forEach(function (element) {
       element.textContent = '';
       element.style.visibility = 'hidden';
     });
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const ethnicitiesErrorDiv = ethnicitiesInput.nextElementSibling;
       const percentErrorDiv = percentInput.nextElementSibling;
       const percent = parseFloat(percentInput.value) || 0;
-      
+
       if (percent > 0 && !ethnicitiesInput.value.trim()) {
         ethnicitiesErrorDiv.textContent = 'Ethnicity name is required';
         ethnicitiesErrorDiv.style.visibility = 'visible';
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         percentErrorDiv.style.visibility = 'visible';
         isValid = false;
       }
-      
+
       totalPercentage += percent;
     });
 
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
+
   function displayResults(ethnicities) {
     const resultDiv = document.getElementById('result');
     let resultHTML = '<h2>Me</h2>';
@@ -120,10 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  window.onscroll = function() {
+  window.onscroll = function () {
     scrollFunction();
   };
-  
+
   function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
       document.querySelector('.advertisement').style.top = "-45px";
@@ -133,3 +135,35 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+
+
+function setInitialTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'system'; // Use 'system' if nothing is saved
+  setTheme(savedTheme);
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (theme === 'system') {
+    handleSystemThemeChange();
+  }
+}
+
+function handleSystemThemeChange() {
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  document.documentElement.setAttribute('data-theme', prefersDarkScheme.matches ? 'dark' : 'light');
+  prefersDarkScheme.addEventListener('change', event => {
+    document.documentElement.setAttribute('data-theme', event.matches ? 'dark' : 'light');
+  });
+}
+
+function bindThemeToggleButtons() {
+  const buttons = document.querySelectorAll('.toggle-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function () {
+      const theme = this.dataset.theme;
+      setTheme(theme);
+    });
+  });
+}
