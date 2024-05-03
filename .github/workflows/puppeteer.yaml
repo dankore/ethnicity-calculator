@@ -26,8 +26,8 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y libxshmfence-dev libgbm-dev libatk-bridge2.0-0 libgtk-3-0
 
-    - name: Install Puppeteer and dependencies
-      run: npm install
+    - name: Install Puppeteer globally
+      run: npm install -g puppeteer
 
     - name: Run Puppeteer test
       run: |
