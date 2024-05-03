@@ -1,6 +1,12 @@
-name: Puppeteer
+name: Puppeteer Tests
 
-on: push
+on:
+  push:
+    branches:
+      - main 
+  pull_request:
+    branches:
+      - main
 
 jobs:
   puppeteer:
@@ -11,8 +17,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v
-
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
     - name: Install dependencies
       run: |
         npm install puppeteer
