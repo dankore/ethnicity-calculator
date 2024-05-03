@@ -27,7 +27,9 @@ jobs:
         sudo apt-get install -y libxshmfence-dev libgbm-dev libatk-bridge2.0-0 libgtk-3-0
 
     - name: Install Puppeteer globally
-      run: npm install -g puppeteer
+      run: |
+        npm install -g puppeteer
+        echo "NODE_PATH=$(npm root -g)" >> $GITHUB_ENV
 
     - name: Run Puppeteer test
       run: |
