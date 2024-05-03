@@ -31,6 +31,12 @@ jobs:
         npm install -g puppeteer
         echo "NODE_PATH=$(npm root -g)" >> $GITHUB_ENV
 
+    - name: Install http-server
+      run: npm install -g http-server
+
+    - name: Start HTTP Server
+      run: http-server . -p 8080 & sleep 5  # Adjust as needed
+
     - name: Run Puppeteer test
       run: |
         node test.js
