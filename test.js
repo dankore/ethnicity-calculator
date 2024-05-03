@@ -1,35 +1,30 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
-    const browser = await puppeteer.launch({
-        headless: true, // Ensure it runs headless
-        args: ['--no-sandbox', '--disable-setuid-sandbox'] // Necessary for CI environments
-    });
-    const page = await browser.newPage();
-    await page.goto(`file://${__dirname}/index.html`, { waitUntil: 'networkidle0' });
+async function runTest() {
+  const browser = await puppeteer.launch({
+    headless: true, // Running headless for CI environment
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
 
-    // Test theme change: Switch to dark theme and check a style change
-    console.log('Testing theme change...');
-    await page.click('.toggle-btn[data-theme="dark"]');
-    const backgroundColorDark = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-    console.log(`Dark theme background color: ${backgroundColorDark}`); // Log the color to verify
+  const page = await browser.newPage();
+  await page.goto('http://localhost:8080', { waitUntil: 'networkidle0' });
 
-    // Switch to light theme and verify change
-    await page.click('.toggle-btn[data-theme="light"]');
-    const backgroundColorLight = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-    console.log(`Light theme background color: ${backgroundColorLight}`); // Log the color to verify
+  // Assuming you have the appropriate form interactions here
+  await page.type('#mother input[name="mother_ethnicities1"]', 'Igbo');
+  await page.type('#mother input[name="mother_percent1"]', '60');
+  await page.type('#father input[name="father_ethnicities1"]', 'Yoruba');
+  await page.type('#father input[name="father_percent1"]', '40');
+  
+  await page.click('#calculate');
 
-    // Test form submission
-    console.log('Testing form submission...');
-    await page.type('input[name="mother_ethnicities1"]', 'Hausa');
-    await page.type('input[name="mother_percent1"]', '50');
-    await page.type('input[name="father_ethnicities1"]', 'Fulani');
-    await page.type('input[name="father_percent1"]', '50');
-    await page.click('#calculate');
-    await page.waitForSelector('#result', { visible: true });
-    const resultText = await page.evaluate(() => document.getElementById('result').innerText);
-    console.log(`Result Displayed: ${resultText}`); // Log result to verify
+  await page.waitForSelector('#result', { visible: true });
+  const resultText = await page.evaluate(() => document.querySelector('#result').textContent);
+  console.log('Test Result:', resultText);
 
-    // Close the browser
-    await browser.close();
-})();
+  await browser.close();
+}
+
+runTest().catch(error => {
+  console.error('Test failed', error);
+  process.exit(1);
+});
