@@ -61,11 +61,8 @@ body {
 }
 
 .right-section {
-  padding-left: 20px;
-}
-
-.right-section {
   padding-top: 60px;
+  padding-left: 20px;
   flex: 1;
 }
 
