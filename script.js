@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     parentDiv.insertBefore(newEntry, addButton);
   }
 
+if (window.location.pathname === '/') {
   document.getElementById('ethnicityForm').addEventListener('click', function (event) {
     if (event.target.classList.contains('btn-add')) {
       const parentId = event.target.closest('.parent').id;
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
       calculateEthnicity(event);
     }
   });
+}
+
 
   function calculateEthnicity(event) {
     event.preventDefault(); // Prevent form submission
