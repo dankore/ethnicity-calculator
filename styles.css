@@ -369,7 +369,27 @@ footer a:hover {
 .services-section h1 {
   text-align: center;
   color: var(--primary-color);
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+.contact-links {
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-link {
+  margin: 0 15px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.contact-link:hover {
+  background-color: var(--button-hover);
 }
 
 .service {
@@ -424,7 +444,7 @@ footer a:hover {
   }
 
   .service-content img.service-image {
-    width: 250px;
+    width: 200px;
     height: auto;
     margin-right: 20px;
   }
