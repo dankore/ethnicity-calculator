@@ -380,6 +380,23 @@ footer a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
 
+.service-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-content img.service-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.service-content .service-text {
+  text-align: center;
+}
+
 .service h2 {
   color: var(--primary-color);
   margin-bottom: 10px;
@@ -398,6 +415,24 @@ footer a:hover {
 
 .service ul li {
   margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  .service-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .service-content img.service-image {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+  }
+
+  .service-content .service-text {
+    flex: 1;
+    text-align: left;
+  }
 }
 
 
