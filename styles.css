@@ -466,8 +466,6 @@ footer a:hover {
   }
 }
 
-
-
 @media (max-width: 767px) {
   .input-group-container {
     flex: none;
@@ -477,13 +475,17 @@ footer a:hover {
   .header-banner {
     font-size: 14px;
   }
-    .contact-links {
+  .contact-links {
     flex-direction: column;
   }
 
   .contact-link {
     width: 80%;
     margin: 10px auto;
+  }
+
+  .service ul {
+    list-style-type: none;
   }
 }
 
