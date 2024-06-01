@@ -626,10 +626,9 @@ p {
 .contact-link {
   text-align: center;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin: 5px;
   font-size: 16px;
-  font-weight: bold;
   color: var(--text-white);
   background-color: var(--button-hover);
   border: none;
