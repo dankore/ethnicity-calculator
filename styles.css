@@ -536,6 +536,19 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.marketing-links {
+  margin-top: 20px;
+}
+
+.h2-heading {
+  font-weight: 700;
+  padding: 10px 0;
+}
+
+p {
+  padding: 10px 0;
+}
+
 .btn-remove {
   padding: 8px 16px;
   background-color: #dc3545;
@@ -575,6 +588,8 @@ footer a:hover {
 .icon-link {
   color: var(--primary-color);
   text-decoration: none;
+  padding: 5px 0;
+  display: inline-block;
 }
 
 .icon-link:hover,
