@@ -41,93 +41,110 @@
 </head>
 
 <body>
-  <nav aria-label="Navigation" class="navbar">
-    <div class="nav-links">
-      <a href="services.html">Services</a>
-    </div>
-    <div class="theme-toggle">
-      <button class="toggle-btn" data-theme="light">Light</button>
-      <button class="toggle-btn" data-theme="dark">Dark</button>
-      <button class="toggle-btn" data-theme="system">System</button>
-    </div>
-
+  <nav aria-label="Main Navigation">
+    <ul class="navbar">
+      <li class="nav-links"><a href="services.html">Services</a></li>
+      <li>
+        <div class="theme-toggle" aria-label="Theme Toggle">
+          <button class="toggle-btn" data-theme="light" aria-label="Switch to light theme">Light</button>
+          <button class="toggle-btn" data-theme="dark" aria-label="Switch to dark theme">Dark</button>
+          <button class="toggle-btn" data-theme="system" aria-label="Switch to system theme">System</button>
+        </div>
+      </li>
+    </ul>
   </nav>
 
-  <a class="advertisement" href="https://www.dankoresoft.com/promos/free-blazing-fast-website">Empower your online
-    presence! Get your free website today!</a>
+  <a class="advertisement" href="https://www.dankoresoft.com/promos/free-blazing-fast-website"
+    aria-label="Get your free website today!">Empower your online presence! Get your free website today!</a>
+
   <main>
     <header class="header-banner">
-      <img src="icons/android-icon-72x72.png" alt="logo" width="48" height="48" />
+      <img src="icons/android-icon-72x72.png" alt="logo" width="48" height="48">
       <h1>Ethnicity Calculator</h1>
     </header>
+
     <section class="section-container">
       <article class="left-section">
         <section id="calculator">
           <form id="ethnicityForm">
-            <div class="parent" id="mother">
-              <h2>👩 Mother</h2>
+            <fieldset class="parent" id="mother">
+              <legend>
+                <h2>👩 Mother</h2>
+              </legend>
               <div class="ethnicity-entry">
                 <div class="input-group">
-                  <input type="text" placeholder="Ethnicity 1" name="mother_ethnicities1" />
-                  <div class="error-message"></div>
+                  <label for="mother_ethnicities1">Ethnicity 1</label>
+                  <input type="text" id="mother_ethnicities1" name="mother_ethnicities1"
+                    required>
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
-                  <input type="number" placeholder="Percent" name="mother_percent1" />
-                  <div class="error-message"></div>
+                  <label for="mother_percent1">Percent</label>
+                  <input type="number" id="mother_percent1"  name="mother_percent1" required>
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
               <div class="ethnicity-entry">
                 <div class="input-group">
-                  <input type="text" placeholder="Ethnicity 2 (optional)" name="mother_ethnicities2" />
-                  <div class="error-message"></div>
+                  <label for="mother_ethnicities2">Ethnicity 2 (optional)</label>
+                  <input type="text" id="mother_ethnicities2"
+                    name="mother_ethnicities2">
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
-                  <input type="number" placeholder="Percent (optional)" name="mother_percent2" />
-                  <div class="error-message"></div>
+                  <label for="mother_percent2">Percent (optional)</label>
+                  <input type="number" id="mother_percent2" name="mother_percent2">
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
+              <button type="button" class="btn-add" aria-label="Add more mother ethnicity">Add More Mother
+                Ethnicity</button>
+            </fieldset>
 
-              <button type="button" class="btn-add">
-                Add More Mother Ethnicity
-              </button>
-            </div>
-
-            <div class="parent" id="father">
-              <h2>👨 Father</h2>
+            <fieldset class="parent" id="father">
+              <legend>
+                <h2>👨 Father</h2>
+              </legend>
               <div class="ethnicity-entry">
                 <div class="input-group">
-                  <input type="text" placeholder="Ethnicity 1" name="father_ethnicities1" />
-                  <div class="error-message"></div>
+                  <label for="father_ethnicities1">Ethnicity 1</label>
+                  <input type="text" id="father_ethnicities1" name="father_ethnicities1"
+                    required>
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
-                  <input type="number" placeholder="Percent" name="father_percent1" />
-                  <div class="error-message"></div>
+                  <label for="father_percent1">Percent</label>
+                  <input type="number" id="father_percent1" name="father_percent1" required>
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
               <div class="ethnicity-entry">
                 <div class="input-group">
-                  <input type="text" placeholder="Ethnicity 2 (optional)" name="father_ethnicities2" />
-                  <div class="error-message"></div>
+                  <label for="father_ethnicities2">Ethnicity 2 (optional)</label>
+                  <input type="text" id="father_ethnicities2"
+                    name="father_ethnicities2">
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
-                  <input type="number" placeholder="Percent (optional)" name="father_percent2" />
-                  <div class="error-message"></div>
+                  <label for="father_percent2">Percent (optional)</label>
+                  <input type="number" id="father_percent2" name="father_percent2">
+                  <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
-              <button type="button" class="btn-add">
-                Add More Father Ethnicity
-              </button>
-            </div>
-            <button type="submit" id="calculate">Calculate</button>
+              <button type="button" class="btn-add" aria-label="Add more father ethnicity">Add More Father
+                Ethnicity</button>
+            </fieldset>
+            <button type="submit" id="calculate" aria-label="Calculate your ethnicity">Calculate</button>
           </form>
-          <div id="result">
+          <div id="result" aria-live="polite">
             <h2>Me</h2>
             <!-- The result will be displayed here -->
           </div>
         </section>
       </article>
+
       <aside class="right-section">
-        <section class="ad-container">
+        <section class="ad-container" aria-label="Advertisement">
           <script async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7174503033473057"
             crossorigin="anonymous"></script>
@@ -141,80 +158,54 @@
 
         <section id="marketing-links">
           <h2>Links we care about</h2>
-
-          <a href="https://www.youtube.com/@Nadrah_?sub_confirmation=1" target="_blank" class="icon-link">
-            Struggles of a Muslim mom of 3 living in America YouTube Vlogs -
-            subscribe now
-          </a>
-          <br />
-          <br />
-
-          <a class="icon-link"
-            href="mailto:free@dankoresoft.com?subject=Interested%20in%20a%20Free%20Website&body=Hello%2C%0A%0AI%20am%20interested%20in%20improving%20my%20online%20presence%20and%20would%20like%20to%20inquire%20about%20getting%20a%20free%20website.%20Please%20provide%20me%20with%20more%20information%20about%20your%20services.%0A%0AThank%20you!">
-            E-commerce, Artificial Intelligence (AI), and marketing services.
-            We are USA based!</a>
+          <ul>
+            <li><a href="https://www.youtube.com/@Nadrah_?sub_confirmation=1" target="_blank"
+                class="icon-link">Struggles of a Muslim mom of 3 living in America YouTube Vlogs - subscribe now</a>
+            </li>
+            <li><a
+                href="mailto:free@dankoresoft.com?subject=Interested%20in%20a%20Free%20Website&body=Hello%2C%0A%0AI%20am%20interested%20in%20improving%20my%20online%20presence%20and%20would%20like%20to%20inquire%20about%20getting%20a%20free%20website.%20Please%20provide%20me%20with%20more%20information%20about%20your%20services.%0A%0AThank%20you!"
+                class="icon-link">E-commerce, Artificial Intelligence (AI), and marketing services. We are USA
+                based!</a></li>
+          </ul>
         </section>
+
         <section id="consultation-section">
           <h2>Personalized Ethnicity Consultation</h2>
-          <p>
-            Get help analyzing your ethnic background and identifying your
-            unique ethnic makeup with our expert consultation service.
-            <del>$200</del> Now available for just $20!
-          </p>
-          <p>
-            Take advantage of this amazing 90% discount by making a payment of
-            $20 to the following bank account:
-          </p>
-          <p>
-            <strong>Payment link:</strong>
-            <a href="https://buy.stripe.com/9AQ02h7m258g892bIJ" target="_blank" id="stripe-payment-button"
-              class="icon-link">
-              Pay on Stripe
-            </a>
-          </p>
-
-          <p>
-            After making the payment, click the button below to chat with me
-            on WhatsApp:
-
-            <a href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" id="whatsapp-button" class="icon-link">Chat
-              on WhatsApp</a>
-          </p>
+          <p>Get help analyzing your ethnic background and identifying your unique ethnic makeup with our expert
+            consultation service. <del>$200</del> Now available for just $20!</p>
+          <p>Take advantage of this amazing 90% discount by making a payment of $20 to the following bank account:</p>
+          <p><strong>Payment link:</strong> <a href="https://buy.stripe.com/9AQ02h7m258g892bIJ" target="_blank"
+              id="stripe-payment-button" class="icon-link">Pay on Stripe</a></p>
+          <p>After making the payment, click the button below to chat with me on WhatsApp: <a
+              href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" id="whatsapp-button" class="icon-link">Chat on
+              WhatsApp</a></p>
         </section>
+
         <section id="instructions">
           <details>
             <summary>Instructions</summary>
             <div>
-              <p>
-                To determine your parents' ethnic makeup, you can start by
-                having a conversation with them about their ancestry and
-                background. Ask questions about their parents and
-                grandparents' origin ethnic groups.
-              </p>
-
+              <p>To determine your parents' ethnic makeup, you can start by having a conversation with them about their
+                ancestry and background. Ask questions about their parents and grandparents' origin ethnic groups.</p>
               <h3>Example:</h3>
-              <p>
-                Suppose your father is 50% Fulani and 50% Hausa, and your
-                mother is 25% Hausa, 25% Igala, and 50% Idoma. To calculate
-                your ethnicity breakdown, you would input the following:
-              </p>
+              <p>Suppose your father is 50% Fulani and 50% Hausa, and your mother is 25% Hausa, 25% Igala, and 50%
+                Idoma. To calculate your ethnicity breakdown, you would input the following:</p>
               <ul>
-                <li><strong>Father's Ethnicities:</strong></li>
-                <ul>
-                  <li>Fulani - 50%</li>
-                  <li>Hausa - 50%</li>
-                </ul>
-
-                <li><strong>Mother's Ethnicities:</strong></li>
-                <ul>
-                  <li>Hausa - 25%</li>
-                  <li>Igala - 25%</li>
-                  <li>Idoma - 50%</li>
-                </ul>
+                <li><strong>Father's Ethnicities:</strong>
+                  <ul>
+                    <li>Fulani - 50%</li>
+                    <li>Hausa - 50%</li>
+                  </ul>
+                </li>
+                <li><strong>Mother's Ethnicities:</strong>
+                  <ul>
+                    <li>Hausa - 25%</li>
+                    <li>Igala - 25%</li>
+                    <li>Idoma - 50%</li>
+                  </ul>
+                </li>
               </ul>
-              <p>
-                Based on this information, your ethnicity breakdown would be:
-              </p>
+              <p>Based on this information, your ethnicity breakdown would be:</p>
               <ul>
                 <li>Hausa: 37.5%</li>
                 <li>Fulani: 25%</li>
@@ -224,28 +215,25 @@
             </div>
           </details>
         </section>
+
         <section id="disclaimer">
-          <p>
-            <strong>Disclaimer:</strong> The Ethnicity Calculator is designed
-            for entertainment purposes and to spark interest in one's cultural
-            heritage. Ethnicity is a complex and multifaceted aspect of
-            identity that involves cultural, historical, and social elements.
-            This calculator uses a simplified model and should not be taken as
-            a definitive representation of one's ethnic background.
-          </p>
+          <p><strong>Disclaimer:</strong> The Ethnicity Calculator is designed for entertainment purposes and to spark
+            interest in one's cultural heritage. Ethnicity is a complex and multifaceted aspect of identity that
+            involves cultural, historical, and social elements. This calculator uses a simplified model and should not
+            be taken as a definitive representation of one's ethnic background.</p>
         </section>
       </aside>
     </section>
   </main>
+
   <footer>
-    <p>
-      Created by
-      <a class="icon-link" href="https://www.dankoresoft.com/">Dankore Software LLC, USA</a> |
-      Follow on <a class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a>
-    </p>
+    <p>Created by <a class="icon-link" href="https://www.dankoresoft.com/">Dankore Software LLC, USA</a> | Follow on <a
+        class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a></p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
   <script src="script.js"></script>
 </body>
+
 
 </html>

@@ -42,29 +42,32 @@
 
 
 <body>
-  <nav aria-label="Navigation" class="navbar">
-    <div class="nav-links">
-      <a href="/">Home</a>
-    </div>
-    <div class="theme-toggle">
-      <button class="toggle-btn" data-theme="light">Light</button>
-      <button class="toggle-btn" data-theme="dark">Dark</button>
-      <button class="toggle-btn" data-theme="system">System</button>
-    </div>
-
+  <nav aria-label="Main Navigation">
+    <ul class="navbar">
+      <li class="nav-links"><a href="/">Home</a></li>
+      <li>
+        <div class="theme-toggle" aria-label="Theme Toggle">
+          <button class="toggle-btn" data-theme="light" aria-label="Switch to light theme">Light</button>
+          <button class="toggle-btn" data-theme="dark" aria-label="Switch to dark theme">Dark</button>
+          <button class="toggle-btn" data-theme="system" aria-label="Switch to system theme">System</button>
+        </div>
+      </li>
+    </ul>
   </nav>
 
-  <a class="advertisement" href="https://www.dankoresoft.com/promos/free-blazing-fast-website">Empower your online
-    presence! Get your free website today!</a>
+  <a class="advertisement" href="https://www.dankoresoft.com/promos/free-blazing-fast-website"
+    aria-label="Get your free website today!">Empower your online presence! Get your free website today!</a>
 
   <main>
     <header class="header-banner">
       <h1 class="service-header">Our Services</h1>
-      <div class="contact-links">
-        <a href="tel:+13192965799" class="contact-link">Call Us</a>
-        <a href="mailto:support@dankoresoft.com" class="contact-link">Email Us</a>
-        <a href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" class="contact-link">WhatsApp Us</a>
-      </div>
+      <nav class="contact-links" aria-label="Contact Links">
+        <ul>
+          <li><a href="tel:+13192965799" class="contact-link">Call Us</a></li>
+          <li><a href="mailto:support@dankoresoft.com" class="contact-link">Email Us</a></li>
+          <li><a href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" class="contact-link">WhatsApp Us</a></li>
+        </ul>
+      </nav>
     </header>
 
     <section class="section-container">
@@ -119,8 +122,7 @@
             <div class="service-text">
               <h2>eBay, Amazon, Etsy Listing Services</h2>
               <p>Assisting with creating and managing product listings on eBay, Amazon, and Etsy to enhance visibility
-                and
-                sales.</p>
+                and sales.</p>
             </div>
           </div>
         </section>
@@ -137,7 +139,7 @@
           </div>
         </section>
 
-        <section class="ad-container">
+        <section class="ad-container" aria-label="Advertisement">
           <script async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7174503033473057"
             crossorigin="anonymous"></script>
@@ -149,29 +151,31 @@
           </script>
         </section>
       </article>
+
       <aside class="right-section">
-        <script async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7174503033473057"
-          crossorigin="anonymous"></script>
-        <!-- ethnicity-vertical -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057"
-          data-ad-slot="8281147134" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <section aria-label="Advertisement">
+          <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7174503033473057"
+            crossorigin="anonymous"></script>
+          <!-- ethnicity-vertical -->
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057"
+            data-ad-slot="8281147134" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </section>
       </aside>
     </section>
   </main>
 
   <footer>
-    <p>
-      Created by
-      <a class="icon-link" href="https://www.dankoresoft.com/">Dankore Software LLC, USA</a> |
-      Follow on <a class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a>
-    </p>
+    <p>Created by <a class="icon-link" href="https://www.dankoresoft.com/">Dankore Software LLC, USA</a> | Follow on <a
+        class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a></p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
   <script src="script.js"></script>
 </body>
+
 
 </html>
