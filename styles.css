@@ -448,6 +448,12 @@ footer a:hover {
   margin-bottom: 5px;
 }
 
+.ad-container {
+  width: auto; 
+  height: 300px; 
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
   .service-content {
     flex-direction: row;
