@@ -2,6 +2,34 @@ document.addEventListener('DOMContentLoaded', function () {
   setInitialTheme();
   bindThemeToggleButtons();
 
+  // Google Analytics setup
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-YDGB4Z1HWK');
+
+  // Web Vitals setup
+  let script = document.createElement('script');
+  script.src = 'https://unpkg.com/web-vitals@4/dist/web-vitals.iife.js';
+  script.onload = function () {
+    webVitals.onCLS(sendToGoogleAnalytics);
+    webVitals.onINP(sendToGoogleAnalytics);
+    webVitals.onLCP(sendToGoogleAnalytics);
+  };
+  document.head.appendChild(script);
+
+  // sendToGoogleAnalytics function
+  function sendToGoogleAnalytics({ name, delta, id }) {
+    gtag('event', name, {
+      event_category: 'Web Vitals',
+      event_label: id, // ID of the metric (e.g., CLS, INP, etc.)
+      value: Math.round(name === 'CLS' ? delta * 1000 : delta), // Values must be integers
+      non_interaction: true, // Prevents affecting bounce rate
+    });
+  }
+
   function addEthnicityEntry(parentId) {
     const parentDiv = document.getElementById(parentId);
     const newEntry = document.createElement('div');
@@ -27,17 +55,16 @@ document.addEventListener('DOMContentLoaded', function () {
     parentDiv.insertBefore(newEntry, addButton);
   }
 
-if (window.location.pathname === '/') {
-  document.getElementById('ethnicityForm').addEventListener('click', function (event) {
-    if (event.target.classList.contains('btn-add')) {
-      const parentId = event.target.closest('.parent').id;
-      addEthnicityEntry(parentId);
-    } else if (event.target.id === 'calculate') {
-      calculateEthnicity(event);
-    }
-  });
-}
-
+  if (window.location.pathname === '/') {
+    document.getElementById('ethnicityForm').addEventListener('click', function (event) {
+      if (event.target.classList.contains('btn-add')) {
+        const parentId = event.target.closest('.parent').id;
+        addEthnicityEntry(parentId);
+      } else if (event.target.id === 'calculate') {
+        calculateEthnicity(event);
+      }
+    });
+  }
 
   function calculateEthnicity(event) {
     event.preventDefault(); // Prevent form submission
@@ -121,7 +148,7 @@ if (window.location.pathname === '/') {
       spread: 70,
       particleCount: 100,
       startVelocity: 30,
-      origin: { y: 0.6 }
+      origin: { y: 0.6 },
     });
   }
 
@@ -131,14 +158,12 @@ if (window.location.pathname === '/') {
 
   function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.querySelector('.advertisement').style.top = "-45px";
+      document.querySelector('.advertisement').style.top = '-45px';
     } else {
-      document.querySelector('.advertisement').style.top = "0";
+      document.querySelector('.advertisement').style.top = '0';
     }
   }
-
 });
-
 
 function setInitialTheme() {
   const savedTheme = localStorage.getItem('theme') || 'system'; // Use 'system' if nothing is saved
@@ -154,7 +179,7 @@ function setTheme(theme) {
 }
 
 function handleSystemThemeChange() {
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
   document.documentElement.setAttribute('data-theme', prefersDarkScheme.matches ? 'dark' : 'light');
   prefersDarkScheme.addEventListener('change', event => {
     document.documentElement.setAttribute('data-theme', event.matches ? 'dark' : 'light');
