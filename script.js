@@ -20,15 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
   };
   document.head.appendChild(script);
 
-  // sendToGoogleAnalytics function
-  function sendToGoogleAnalytics({ name, delta, id }) {
-    gtag('event', name, {
-      event_category: 'Web Vitals',
-      event_label: id, // ID of the metric (e.g., CLS, INP, etc.)
-      value: Math.round(name === 'CLS' ? delta * 1000 : delta), // Values must be integers
-      non_interaction: true, // Prevents affecting bounce rate
-    });
-  }
+ // sendToGoogleAnalytics function
+ function sendToGoogleAnalytics({ name, delta, id }) {
+  console.log(`Metric: ${name}, Delta: ${delta}, ID: ${id}`); // Debugging line
+  gtag('event', name, {
+    event_category: 'Web Vitals',
+    event_label: id, // ID of the metric (e.g., CLS, INP, etc.)
+    value: Math.round(name === 'CLS' ? delta * 1000 : delta), // Values must be integers
+    non_interaction: true, // Prevents affecting bounce rate
+  });
+}
 
   function addEthnicityEntry(parentId) {
     const parentDiv = document.getElementById(parentId);
