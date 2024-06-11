@@ -247,8 +247,9 @@ body {
   color: var(--text-color);
   font-family: 'Arial', sans-serif;
   padding-top: 45px;
-  margin: 0;
   line-height: inherit;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .advertisement {
@@ -698,12 +699,6 @@ p {
 .service-header {
   text-align: center;
   margin: 0;
-}
-
-.advertisement-section {
-  width: 350px;
-  display: flex;
-  justify-content: center;
 }
 
 @media (min-width: 768px) {
