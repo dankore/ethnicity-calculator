@@ -700,6 +700,12 @@ p {
   margin: 0;
 }
 
+.advertisement-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 768px) {
   .service-content {
     flex-direction: row;
