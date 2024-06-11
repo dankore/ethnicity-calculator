@@ -700,6 +700,21 @@ p {
   margin: 0;
 }
 
+.advertisement-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+}
+
+.adsbygoogle {
+  display: block;
+  width: auto;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
   .service-content {
     flex-direction: row;
