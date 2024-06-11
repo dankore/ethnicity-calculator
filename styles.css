@@ -702,6 +702,9 @@ p {
 
 .advertisement-section {
   width: 100%;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
