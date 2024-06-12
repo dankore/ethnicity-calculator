@@ -23,6 +23,18 @@
   --icon-color: var(--text-white);
 }
 
+[data-theme='system'] {
+  --dim-color: #333333;
+  --primary-color: #1e8e70;
+  --button-hover: #146e5d;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --advertisement-bg-color: #34495e;
+  --border-color: #444444;
+  --error-color: #e74c3c;
+  --icon-color: var(--text-white);
+}
+
 [data-theme='light'] .toggle-btn[data-theme='light'],
 [data-theme='dark'] .toggle-btn[data-theme='dark'],
 [data-theme='system'] .toggle-btn[data-theme='system'] {
