@@ -158,10 +158,10 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   function scrollFunction() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.querySelector('.advertisement').style.top = '-45px';
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 70) {
+      document.querySelector('.navbar').style.top = '-65px';
     } else {
-      document.querySelector('.advertisement').style.top = '0';
+      document.querySelector('.navbar').style.top = '0';
     }
   }
 });
