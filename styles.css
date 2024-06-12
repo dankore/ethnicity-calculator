@@ -23,6 +23,14 @@
   --icon-color: var(--text-white);
 }
 
+[data-theme='light'] .toggle-btn[data-theme='light'],
+[data-theme='dark'] .toggle-btn[data-theme='dark'],
+[data-theme='system'] .toggle-btn[data-theme='system'] {
+  background-color: var(--button-hover);
+  color: var(--text-white);
+  border: 2px solid var(--primary-color);
+}
+
 *,
 :after,
 :before {
@@ -570,11 +578,12 @@ p {
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.toggle-btn:hover {
+.toggle-btn:hover,
+.toggle-btn:focus {
   background-color: var(--button-hover);
-  color: var(--text-white);
 }
 
 .icon-link {
