@@ -1,11 +1,9 @@
-const cacheName = 'my-cache-v1';
+const cacheName = 'ethncity-cal-cache-v1';
 const filesToCache = [
   '/',
   '/index.html',
   '/styles.css',
-  '/scripts.js',
-  '/images/services-seo-image.webp',
-  '/icons/favicon.ico'
+  '/script.js'
 ];
 
 // Install service worker and cache static assets
@@ -57,4 +55,32 @@ self.addEventListener('fetch', event => {
           });
       })
   );
+});
+
+// Caching .png and .webp images from the icons and images directories
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  // Check if the request is for a .png file in the /icons or /images directory, or a .webp file in the /images directory
+  if ((url.pathname.startsWith('/icons/') && url.pathname.endsWith('.png')) ||
+      (url.pathname.startsWith('/images/') && (url.pathname.endsWith('.png') || url.pathname.endsWith('.webp')))) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(cachedResponse => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          return fetch(event.request).then(networkResponse => {
+            if (!networkResponse || networkResponse.status !== 200) {
+              return networkResponse;
+            }
+            const responseToCache = networkResponse.clone();
+            caches.open(cacheName)
+              .then(cache => {
+                cache.put(event.request, responseToCache);
+              });
+            return networkResponse;
+          });
+        })
+    );
+  }
 });
