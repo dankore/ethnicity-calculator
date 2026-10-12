@@ -2,210 +2,329 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethnicity Calculator</title>
-  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'system';</script>
-  <link rel="stylesheet" href="styles.css" />
+  <!-- @include head -->
+  <title>Ethnicity Calculator: Find Your Ethnic Percentage From Your Parents</title>
   <meta name="description"
-    content="Find out your ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' ethnicities or tribal affiliation." />
-  <meta property="og:title" content="Ethnicity Calculator" />
+    content="Free ethnicity calculator. Enter your parents' or grandparents' ethnicities and see your ethnic makeup as percentages, with a chart you can download and share." />
+  <link rel="canonical" href="https://ethnicity-calculator.dankoresoft.com/">
+  <meta property="og:title" content="Ethnicity Calculator: Find Your Ethnic Percentage" />
   <meta property="og:description"
-    content="Find out your ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' ethnicities or tribal affiliation." />
+    content="Enter your parents' or grandparents' ethnicities and see how they come together in you." />
   <meta property="og:url" content="https://ethnicity-calculator.dankoresoft.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://ethnicity-calculator.dankoresoft.com/ethnic-makeup-seo-image.jpg" />
   <meta property="og:image:width" content="1080" />
   <meta property="og:image:height" content="566" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethnicity Calculator" />
+  <meta name="twitter:title" content="Ethnicity Calculator: Find Your Ethnic Percentage" />
   <meta name="twitter:description"
-    content="Find out your ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' ethnicities or tribal affiliation." />
+    content="Enter your parents' or grandparents' ethnicities and see how they come together in you." />
   <meta name="twitter:image" content="https://ethnicity-calculator.dankoresoft.com/ethnic-makeup-seo-image.jpg" />
-  <link rel="canonical" href="https://ethnicity-calculator.dankoresoft.com/">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-  <link rel="manifest" href="/icons/manifest.json" />
-  <meta name="theme-color" content="#00574b" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Ethnicity Calculator",
+          "url": "https://ethnicity-calculator.dankoresoft.com/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "description": "Calculate your ethnic makeup from your parents' or grandparents' ethnicities.",
+          "publisher": { "@id": "https://www.dankoresoft.com/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.dankoresoft.com/#org",
+          "name": "Dankore Software LLC",
+          "url": "https://www.dankoresoft.com/",
+          "logo": "https://ethnicity-calculator.dankoresoft.com/icons/android-icon-192x192.png",
+          "sameAs": ["https://twitter.com/dankoresoftware"]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How does the ethnicity calculator work?", "acceptedAnswer": { "@type": "Answer", "text": "Each biological parent passes on about half of a child's ancestry. The calculator takes half of each parent's percentages and adds them together. In grandparents mode, each grandparent contributes about a quarter." } },
+            { "@type": "Question", "name": "Is this the same as a DNA test?", "acceptedAnswer": { "@type": "Answer", "text": "No. The calculator shows the expected average based on what you know about your family. Real inheritance is random, so siblings can differ, and a DNA test measures your own genes." } },
+            { "@type": "Question", "name": "Can I calculate my baby's ethnicity?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter your own ethnic makeup and your partner's as the mother and father. The result is your baby's expected mix." } },
+            { "@type": "Question", "name": "What if I don't know a parent's full background?", "acceptedAnswer": { "@type": "Answer", "text": "Add what you know and enter the rest as Unknown so each person still totals 100%." } },
+            { "@type": "Question", "name": "Can I use it for race or nationality?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The maths is the same, so you can enter ethnic groups, tribes, races, or nationalities." } },
+            { "@type": "Question", "name": "Is my information saved or shared?", "acceptedAnswer": { "@type": "Answer", "text": "Your entries stay on your device. They are saved in your browser so you can come back later, and they are never sent to our servers." } }
+          ]
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
-  <nav class="navbar" aria-label="Main">
-    <a class="nav-link" href="/services.html">Services</a>
-    <div class="theme-toggle" role="group" aria-label="Color theme">
-      <button type="button" class="toggle-btn" data-theme="light" aria-pressed="false">Light</button>
-      <button type="button" class="toggle-btn" data-theme="dark" aria-pressed="false">Dark</button>
-      <button type="button" class="toggle-btn" data-theme="system" aria-pressed="false">System</button>
-    </div>
-  </nav>
+  <!-- @include header -->
 
-  <main>
-    <header class="header-banner">
-      <img src="icons/logo-48.webp" srcset="icons/logo-48.webp 1x, icons/logo-96.webp 2x" alt="" width="48"
-        height="48">
-      <h1>Ethnicity Calculator</h1>
-    </header>
-
-    <section class="ad-slot ad-slot-banner" aria-label="Advertisement">
-      <ins class="adsbygoogle ad-banner" data-ad-client="ca-pub-7174503033473057" data-ad-slot="1072106496"></ins>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Free heritage tool</p>
+          <h1 id="hero-title">Ethnicity Calculator <span>Discover the threads that make you.</span></h1>
+          <p class="lead">Enter your mother's and father's ethnic backgrounds, or go back to your grandparents, and see your
+            own ethnic makeup in seconds.</p>
+          <div class="hero-cta">
+            <a class="btn btn-light btn-lg" href="#calculator">Start calculating</a>
+            <a class="btn btn-outline-light btn-lg" href="#how-it-works">How it works</a>
+          </div>
+          <ul class="hero-chips">
+            <li><svg class="icon"><use href="#i-check"/></svg>Free, no sign-up</li>
+            <li><svg class="icon"><use href="#i-lock"/></svg>Stays on your device</li>
+            <li><svg class="icon"><use href="#i-users"/></svg>Parents or grandparents</li>
+          </ul>
+        </div>
+        <div class="hero-stage" aria-hidden="true">
+          <canvas class="threads" data-threads="weave"></canvas>
+          <div class="knot"><img src="/icons/logo-96.webp" width="58" height="58" alt=""></div>
+        </div>
+      </div>
     </section>
 
-    <div class="section-container">
-      <div class="left-section">
-        <section id="calculator" aria-label="Calculator">
-          <form id="ethnicityForm" novalidate>
-            <fieldset class="parent" id="mother">
-              <legend>
-                <h2 class="h2-heading">👩 Mother</h2>
-              </legend>
-              <div class="ethnicity-entry">
-                <div class="input-group">
-                  <label for="mother_ethnicities1">Ethnicity 1</label>
-                  <input type="text" id="mother_ethnicities1" name="mother_ethnicities1" autocomplete="off" required>
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-                <div class="input-group">
-                  <label for="mother_percent1">Percent</label>
-                  <input type="number" id="mother_percent1" name="mother_percent1" min="0" max="100" step="any"
-                    inputmode="decimal" required>
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-              </div>
-              <div class="ethnicity-entry">
-                <div class="input-group">
-                  <label for="mother_ethnicities2">Ethnicity 2 (optional)</label>
-                  <input type="text" id="mother_ethnicities2" name="mother_ethnicities2" autocomplete="off">
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-                <div class="input-group">
-                  <label for="mother_percent2">Percent (optional)</label>
-                  <input type="number" id="mother_percent2" name="mother_percent2" min="0" max="100" step="any"
-                    inputmode="decimal">
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-              </div>
-              <button type="button" class="btn-add">Add more mother ethnicity</button>
-            </fieldset>
-
-            <fieldset class="parent" id="father">
-              <legend>
-                <h2 class="h2-heading">👨 Father</h2>
-              </legend>
-              <div class="ethnicity-entry">
-                <div class="input-group">
-                  <label for="father_ethnicities1">Ethnicity 1</label>
-                  <input type="text" id="father_ethnicities1" name="father_ethnicities1" autocomplete="off" required>
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-                <div class="input-group">
-                  <label for="father_percent1">Percent</label>
-                  <input type="number" id="father_percent1" name="father_percent1" min="0" max="100" step="any"
-                    inputmode="decimal" required>
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-              </div>
-              <div class="ethnicity-entry">
-                <div class="input-group">
-                  <label for="father_ethnicities2">Ethnicity 2 (optional)</label>
-                  <input type="text" id="father_ethnicities2" name="father_ethnicities2" autocomplete="off">
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-                <div class="input-group">
-                  <label for="father_percent2">Percent (optional)</label>
-                  <input type="number" id="father_percent2" name="father_percent2" min="0" max="100" step="any"
-                    inputmode="decimal">
-                  <div class="error-message" aria-live="polite"></div>
-                </div>
-              </div>
-              <button type="button" class="btn-add">Add more father ethnicity</button>
-            </fieldset>
-            <button type="submit" id="calculate">Calculate</button>
-          </form>
-          <div id="result" aria-live="polite" hidden>
-            <h2 class="h2-heading">Me</h2>
-            <ul id="result-list"></ul>
-          </div>
-        </section>
+    <div class="ad ad-banner">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-frame">
+        <ins class="adsbygoogle" data-ad-client="ca-pub-7174503033473057" data-ad-slot="1072106496"></ins>
       </div>
+    </div>
 
-      <aside class="right-section">
-        <section class="ad-slot ad-slot-tall" aria-label="Advertisement">
-          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057"
-            data-ad-slot="1072106496" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        </section>
+    <section class="section" id="calculator" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Calculator</p>
+          <h2 id="calc-title">Build your heritage mix</h2>
+          <p>Each person's ethnicities should add up to 100%. Your result updates as you type.</p>
+        </div>
 
-        <section id="marketing-links">
-          <h2 class="h2-heading">Links we care about</h2>
-          <ul>
-            <li><a
-                href="mailto:free@dankoresoft.com?subject=Interested%20in%20a%20Free%20Website&body=Hello%2C%0A%0AI%20am%20interested%20in%20improving%20my%20online%20presence%20and%20would%20like%20to%20inquire%20about%20getting%20a%20free%20website.%20Please%20provide%20me%20with%20more%20information%20about%20your%20services.%0A%0AThank%20you!"
-                class="icon-link">E-commerce, Artificial Intelligence (AI), and marketing services. We are USA
-                based!</a></li>
-          </ul>
-        </section>
+        <div class="calc-toolbar">
+          <div class="segmented" role="group" aria-label="Who do you know about?">
+            <button type="button" data-mode="parents" aria-pressed="true">Parents</button>
+            <button type="button" data-mode="grandparents" aria-pressed="false">Grandparents</button>
+          </div>
+          <div class="samples">
+            <span class="samples-label" id="samples-label">Try a sample:</span>
+            <div class="sample-chips" id="samples" role="group" aria-labelledby="samples-label"></div>
+          </div>
+        </div>
 
-        <section id="consultation-section">
-          <h2 class="h2-heading">Personalized Ethnicity Consultation</h2>
-          <p>Get help analyzing your ethnic background and identifying your unique ethnic makeup with our expert
-            consultation service. <del>$200</del> Now available for just $20!</p>
-          <p>Take advantage of this amazing 90% discount by making a payment of $20 to the following bank account:</p>
-          <p><strong>Payment link:</strong> <a href="https://buy.stripe.com/9AQ02h7m258g892bIJ" target="_blank"
-              rel="noopener" id="stripe-payment-button" class="icon-link">Pay on Stripe</a></p>
-          <p>After making the payment, click the button below to chat with me on WhatsApp: <a
-              href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" rel="noopener" id="whatsapp-button"
-              class="icon-link">Chat on WhatsApp</a></p>
-        </section>
-
-        <section id="instructions">
-          <details>
-            <summary>Instructions</summary>
-            <div>
-              <p>To determine your parents' ethnic makeup, you can start by having a conversation with them about their
-                ancestry and background. Ask questions about their parents and grandparents' origin ethnic groups.</p>
-              <h3>Example:</h3>
-              <p>Suppose your father is 50% Fulani and 50% Hausa, and your mother is 25% Hausa, 25% Igala, and 50%
-                Idoma. To calculate your ethnicity breakdown, you would input the following:</p>
-              <ul>
-                <li><strong>Father's Ethnicities:</strong>
-                  <ul>
-                    <li>Fulani - 50%</li>
-                    <li>Hausa - 50%</li>
-                  </ul>
-                </li>
-                <li><strong>Mother's Ethnicities:</strong>
-                  <ul>
-                    <li>Hausa - 25%</li>
-                    <li>Igala - 25%</li>
-                    <li>Idoma - 50%</li>
-                  </ul>
-                </li>
-              </ul>
-              <p>Based on this information, your ethnicity breakdown would be:</p>
-              <ul>
-                <li>Hausa: 37.5%</li>
-                <li>Fulani: 25%</li>
-                <li>Igala: 12.5%</li>
-                <li>Idoma: 25%</li>
-              </ul>
+        <div class="calc-grid">
+          <form id="calc-form" novalidate>
+            <div class="people-grid" id="people"></div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-lg"><svg class="icon"><use href="#i-sparkles"/></svg>See my result</button>
+              <button type="button" class="btn btn-ghost btn-lg" id="reset-btn"><svg class="icon"><use href="#i-reset"/></svg>Start over</button>
             </div>
-          </details>
-        </section>
+          </form>
 
-        <section id="disclaimer">
-          <p><strong>Disclaimer:</strong> The Ethnicity Calculator is designed for entertainment purposes and to spark
-            interest in one's cultural heritage. Ethnicity is a complex and multifaceted aspect of identity that
-            involves cultural, historical, and social elements. This calculator uses a simplified model and should not
-            be taken as a definitive representation of one's ethnic background.</p>
-        </section>
-      </aside>
+          <aside class="card result-card" id="result" aria-labelledby="result-title">
+            <div class="result-head">
+              <h3 id="result-title">Your ethnic mix</h3>
+              <span class="badge" id="result-badge">Waiting</span>
+            </div>
+            <div class="donut-wrap">
+              <svg class="donut" id="donut" viewBox="0 0 200 200" aria-hidden="true">
+                <circle class="track" cx="100" cy="100" r="80"></circle>
+              </svg>
+              <div class="donut-center">
+                <strong id="donut-value">0%</strong>
+                <span id="donut-label">Add percentages</span>
+              </div>
+            </div>
+            <div class="result-empty" id="result-empty">
+              <p id="result-hint">Fill in each person until they reach 100%, or try a sample above.</p>
+            </div>
+            <div id="result-body" hidden>
+              <ol class="result-list" id="result-list" aria-live="polite"></ol>
+              <div class="result-extra">
+                <label for="card-name">Name for your result card (optional)</label>
+                <input class="field" id="card-name" type="text" maxlength="40" autocomplete="given-name" placeholder="e.g. Amina">
+                <div class="result-actions">
+                  <button type="button" class="btn btn-soft" id="share-btn"><svg class="icon"><use href="#i-share"/></svg>Share</button>
+                  <button type="button" class="btn btn-primary" id="download-btn"><svg class="icon"><use href="#i-download"/></svg>Save image</button>
+                </div>
+                <p class="toast" id="toast" role="status"></p>
+              </div>
+              <p class="result-note">Each parent passes on about half of their heritage. This is the expected average; real
+                inheritance varies from child to child.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad ad-block container reveal">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-frame">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057" data-ad-slot="1072106496"
+          data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Half from each parent, woven into you</h2>
+          <p>The calculator follows the same rule genealogists use for estimates: every generation passes on about half.</p>
+        </div>
+        <ol class="steps">
+          <li class="card step reveal">
+            <span class="step-num">1</span>
+            <h3>Enter each parent</h3>
+            <p>List your mother's and father's ethnicities with their percentages. Each person must total 100%.</p>
+          </li>
+          <li class="card step reveal">
+            <span class="step-num">2</span>
+            <h3>We halve and combine</h3>
+            <p>Each parent's percentages are halved and added together. Shared ethnicities are merged automatically.</p>
+          </li>
+          <li class="card step reveal">
+            <span class="step-num">3</span>
+            <h3>Save and share</h3>
+            <p>See your mix as a chart, then download a result card or share it with family.</p>
+          </li>
+        </ol>
+
+        <div class="card example reveal">
+          <p class="example-intro"><strong>Worked example.</strong> Your father is 50% Fulani and 50% Hausa. Your mother is 25%
+            Hausa, 25% Igala, and 50% Idoma.</p>
+          <div>
+            <h3>Father</h3>
+            <ul class="mini-bars">
+              <li style="--c:#29b6f6;--w:50%">Fulani <b>50%</b></li>
+              <li style="--c:#29b6f6;--w:50%">Hausa <b>50%</b></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Mother</h3>
+            <ul class="mini-bars">
+              <li style="--c:#f2876b;--w:25%">Hausa <b>25%</b></li>
+              <li style="--c:#f2876b;--w:25%">Igala <b>25%</b></li>
+              <li style="--c:#f2876b;--w:50%">Idoma <b>50%</b></li>
+            </ul>
+          </div>
+          <div>
+            <h3>You</h3>
+            <ul class="mini-bars">
+              <li style="--c:#00a37f;--w:37.5%">Hausa <b>37.5%</b></li>
+              <li style="--c:#00a37f;--w:25%">Fulani <b>25%</b></li>
+              <li style="--c:#00a37f;--w:25%">Idoma <b>25%</b></li>
+              <li style="--c:#00a37f;--w:12.5%">Igala <b>12.5%</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="consultation" aria-labelledby="consult-title">
+      <div class="consult reveal">
+        <canvas class="threads" data-threads="braid-soft" aria-hidden="true"></canvas>
+        <div>
+          <p class="eyebrow" style="color:#bfe9dc">Personal consultation</p>
+          <h2 id="consult-title">Want an expert to trace your heritage with you?</h2>
+          <p>Get one-on-one help analyzing your ethnic background and identifying your unique makeup, including family
+            trees with several generations and mixed records.</p>
+          <div class="price"><strong>$20</strong><del>$200</del><span>90% off</span></div>
+        </div>
+        <div class="consult-actions">
+          <a class="btn btn-light btn-lg" href="https://buy.stripe.com/9AQ02h7m258g892bIJ" target="_blank" rel="noopener"><svg class="icon"><use href="#i-card"/></svg>Pay $20 on Stripe</a>
+          <a class="btn btn-outline-light btn-lg" href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg>Chat on WhatsApp</a>
+          <small>After paying, message us on WhatsApp to book your session.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div class="faq-aside reveal">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Questions people ask</h2>
+            <p>Quick answers about how the calculator works and what it can tell you.</p>
+          </div>
+          <div class="card help-card">
+            <svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg>
+            <div>
+              <h3>Still curious?</h3>
+              <p>Ask us anything about your family's background. We usually reply within a day.</p>
+              <a class="btn btn-soft" href="mailto:support@dankoresoft.com?subject=Ethnicity%20Calculator%20question">Email a question</a>
+            </div>
+          </div>
+        </div>
+        <div class="faq-main">
+        <div class="faq-list">
+          <details class="card faq-item reveal">
+            <summary>How does the ethnicity calculator work?</summary>
+            <p>Each biological parent passes on about half of a child's ancestry. The calculator takes half of each parent's
+              percentages and adds them together. In grandparents mode, each grandparent contributes about a quarter.</p>
+          </details>
+          <details class="card faq-item reveal">
+            <summary>Is this the same as a DNA test?</summary>
+            <p>No. The calculator shows the expected average based on what you know about your family. Real inheritance is
+              random, so siblings can differ, and a DNA test measures your own genes.</p>
+          </details>
+          <details class="card faq-item reveal">
+            <summary>Can I calculate my baby's ethnicity?</summary>
+            <p>Yes. Enter your own ethnic makeup and your partner's as the mother and father. The result is your baby's
+              expected mix.</p>
+          </details>
+          <details class="card faq-item reveal">
+            <summary>What if I don't know a parent's full background?</summary>
+            <p>Add what you know and enter the rest as "Unknown" so each person still totals 100%.</p>
+          </details>
+          <details class="card faq-item reveal">
+            <summary>Can I use it for race or nationality?</summary>
+            <p>Yes. The maths is the same, so you can enter ethnic groups, tribes, races, or nationalities.</p>
+          </details>
+          <details class="card faq-item reveal">
+            <summary>Is my information saved or shared?</summary>
+            <p>Your entries stay on your device. They are saved in your browser so you can come back later, and they are never
+              sent to our servers.</p>
+          </details>
+        </div>
+        <p class="disclaimer reveal"><strong>Disclaimer:</strong> The Ethnicity Calculator is for entertainment and to spark
+          interest in your cultural heritage. Ethnicity is a complex part of identity that involves culture, history, and
+          community. This calculator uses a simplified model and is not a definitive representation of anyone's
+          background.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad ad-block container reveal">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-frame">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057" data-ad-slot="8281147134"
+          data-ad-format="auto" data-full-width-responsive="true"></ins>
+      </div>
     </div>
   </main>
 
-  <footer>
-    <p>Created by <a class="icon-link" href="https://www.dankoresoft.com/">Dankore Software LLC, USA</a> | Follow on <a
-        class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a></p>
-  </footer>
+  <!-- @include footer -->
+
+  <template id="person-template">
+    <fieldset class="card person">
+      <legend class="sr-only"></legend>
+      <div class="person-head">
+        <span class="person-avatar" aria-hidden="true"></span>
+        <h3></h3>
+        <span class="total-pill" aria-live="polite">0%</span>
+      </div>
+      <div class="meter" aria-hidden="true"><span></span></div>
+      <div class="rows"></div>
+      <div class="person-actions">
+        <button type="button" class="link-btn" data-action="add"><svg class="icon"><use href="#i-plus"/></svg>Add ethnicity</button>
+        <button type="button" class="link-btn" data-action="unknown" hidden>Fill rest as Unknown</button>
+      </div>
+      <p class="person-error" aria-live="polite"></p>
+    </fieldset>
+  </template>
+
+  <datalist id="ethnicity-options"></datalist>
 
   <script src="script.js" defer></script>
 </body>

@@ -1,5 +1,5 @@
 // Network first so deploys reach returning visitors; the cache is only an offline fallback.
-const CACHE_NAME = 'ethnicity-calculator-v2';
+const CACHE_NAME = 'ethnicity-calculator-v3';
 
 self.addEventListener('install', () => self.skipWaiting());
 
