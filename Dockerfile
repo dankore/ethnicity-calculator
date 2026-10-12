@@ -1,21 +1,11 @@
-# Use the official Node.js image as the base
-FROM node:24-alpine
-
-# Set the working directory
-WORKDIR /usr/src/app
-
-# Copy the application files
+FROM node:24-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
 COPY . .
+RUN npm run build
 
-# Install minification tools and other dependencies
-RUN npm install -g http-server uglify-js clean-css-cli
-
-# Minify JavaScript and CSS, overwriting the original files
-RUN npx uglify-js script.js -o script.js -c -m
-RUN npx cleancss styles.css -o styles.css
-
-# Expose the port the web server will run on
+FROM nginx:1.29-alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 8080
-
-# Run the web server
-CMD ["http-server", "-p", "8080", "-c-1"]

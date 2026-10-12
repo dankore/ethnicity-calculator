@@ -5,65 +5,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ethnicity Calculator</title>
+  <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'system';</script>
   <link rel="stylesheet" href="styles.css" />
   <meta name="description"
     content="Find out your ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' ethnicities or tribal affiliation." />
-  <meta name="keywords"
-    content="ethnicity calculator, ethnic makeup, heritage, culture, genealogy, ancestry calculator, race, nationality, percentage, baby" />
   <meta property="og:title" content="Ethnicity Calculator" />
   <meta property="og:description"
     content="Find out your ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' ethnicities or tribal affiliation." />
-  <meta property="og:url" content="https://ethnicity-calculator.dankoresoft.com" />
+  <meta property="og:url" content="https://ethnicity-calculator.dankoresoft.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./ethnic-makeup-seo-image.png" />
+  <meta property="og:image" content="https://ethnicity-calculator.dankoresoft.com/ethnic-makeup-seo-image.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="566" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ethnicity Calculator" />
   <meta name="twitter:description"
     content="Find out your ethnic makeup with our easy-to-use calculator. Discover your ethnic background based on your parents' ethnicities or tribal affiliation." />
-  <meta name="twitter:url" content="https://ethnicity-calculator.dankoresoft.com" />
-  <meta name="twitter:image" content="./ethnic-makeup-seo-image.png" />
-  <link rel="canonical" href="https://ethnicity-calculator.dankoresoft.com">
-  <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
+  <meta name="twitter:image" content="https://ethnicity-calculator.dankoresoft.com/ethnic-makeup-seo-image.jpg" />
+  <link rel="canonical" href="https://ethnicity-calculator.dankoresoft.com/">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
   <link rel="manifest" href="/icons/manifest.json" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7174503033473057"
-    crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDGB4Z1HWK"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <meta name="theme-color" content="#00574b" />
 </head>
 
 <body>
-  <nav aria-label="Main Navigation">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057" data-ad-slot="1072106496"
-      data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <ul class="navbar">
-      <li class="nav-links"><a href="services.html">Services</a></li>
-      <li>
-        <div class="theme-toggle" aria-label="Theme Toggle">
-          <button class="toggle-btn" data-theme="light" aria-label="Switch to light theme">Light</button>
-          <button class="toggle-btn" data-theme="dark" aria-label="Switch to dark theme">Dark</button>
-          <button class="toggle-btn" data-theme="system" aria-label="Switch to system theme">System</button>
-        </div>
-      </li>
-    </ul>
+  <nav class="navbar" aria-label="Main">
+    <a class="nav-link" href="/services.html">Services</a>
+    <div class="theme-toggle" role="group" aria-label="Color theme">
+      <button type="button" class="toggle-btn" data-theme="light" aria-pressed="false">Light</button>
+      <button type="button" class="toggle-btn" data-theme="dark" aria-pressed="false">Dark</button>
+      <button type="button" class="toggle-btn" data-theme="system" aria-pressed="false">System</button>
+    </div>
   </nav>
 
   <main>
     <header class="header-banner">
-      <img src="icons/android-icon-72x72.png" alt="logo" width="48" height="48">
+      <img src="icons/logo-48.webp" srcset="icons/logo-48.webp 1x, icons/logo-96.webp 2x" alt="" width="48"
+        height="48">
       <h1>Ethnicity Calculator</h1>
     </header>
 
-    <section class="section-container">
-      <article class="left-section">
-        <section id="calculator">
-          <form id="ethnicityForm">
+    <section class="ad-slot ad-slot-banner" aria-label="Advertisement">
+      <ins class="adsbygoogle ad-banner" data-ad-client="ca-pub-7174503033473057" data-ad-slot="1072106496"></ins>
+    </section>
+
+    <div class="section-container">
+      <div class="left-section">
+        <section id="calculator" aria-label="Calculator">
+          <form id="ethnicityForm" novalidate>
             <fieldset class="parent" id="mother">
               <legend>
                 <h2 class="h2-heading">👩 Mother</h2>
@@ -71,29 +62,30 @@
               <div class="ethnicity-entry">
                 <div class="input-group">
                   <label for="mother_ethnicities1">Ethnicity 1</label>
-                  <input type="text" id="mother_ethnicities1" name="mother_ethnicities1" required>
+                  <input type="text" id="mother_ethnicities1" name="mother_ethnicities1" autocomplete="off" required>
                   <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
                   <label for="mother_percent1">Percent</label>
-                  <input type="number" id="mother_percent1" name="mother_percent1" required>
+                  <input type="number" id="mother_percent1" name="mother_percent1" min="0" max="100" step="any"
+                    inputmode="decimal" required>
                   <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
               <div class="ethnicity-entry">
                 <div class="input-group">
                   <label for="mother_ethnicities2">Ethnicity 2 (optional)</label>
-                  <input type="text" id="mother_ethnicities2" name="mother_ethnicities2">
+                  <input type="text" id="mother_ethnicities2" name="mother_ethnicities2" autocomplete="off">
                   <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
                   <label for="mother_percent2">Percent (optional)</label>
-                  <input type="number" id="mother_percent2" name="mother_percent2">
+                  <input type="number" id="mother_percent2" name="mother_percent2" min="0" max="100" step="any"
+                    inputmode="decimal">
                   <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
-              <button type="button" class="btn-add" aria-label="Add more mother ethnicity">Add More Mother
-                Ethnicity</button>
+              <button type="button" class="btn-add">Add more mother ethnicity</button>
             </fieldset>
 
             <fieldset class="parent" id="father">
@@ -103,52 +95,50 @@
               <div class="ethnicity-entry">
                 <div class="input-group">
                   <label for="father_ethnicities1">Ethnicity 1</label>
-                  <input type="text" id="father_ethnicities1" name="father_ethnicities1" required>
+                  <input type="text" id="father_ethnicities1" name="father_ethnicities1" autocomplete="off" required>
                   <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
                   <label for="father_percent1">Percent</label>
-                  <input type="number" id="father_percent1" name="father_percent1" required>
+                  <input type="number" id="father_percent1" name="father_percent1" min="0" max="100" step="any"
+                    inputmode="decimal" required>
                   <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
               <div class="ethnicity-entry">
                 <div class="input-group">
                   <label for="father_ethnicities2">Ethnicity 2 (optional)</label>
-                  <input type="text" id="father_ethnicities2" name="father_ethnicities2">
+                  <input type="text" id="father_ethnicities2" name="father_ethnicities2" autocomplete="off">
                   <div class="error-message" aria-live="polite"></div>
                 </div>
                 <div class="input-group">
                   <label for="father_percent2">Percent (optional)</label>
-                  <input type="number" id="father_percent2" name="father_percent2">
+                  <input type="number" id="father_percent2" name="father_percent2" min="0" max="100" step="any"
+                    inputmode="decimal">
                   <div class="error-message" aria-live="polite"></div>
                 </div>
               </div>
-              <button type="button" class="btn-add" aria-label="Add more father ethnicity">Add More Father
-                Ethnicity</button>
+              <button type="button" class="btn-add">Add more father ethnicity</button>
             </fieldset>
-            <button type="submit" id="calculate" aria-label="Calculate your ethnicity">Calculate</button>
+            <button type="submit" id="calculate">Calculate</button>
           </form>
-          <div id="result" aria-live="polite">
+          <div id="result" aria-live="polite" hidden>
             <h2 class="h2-heading">Me</h2>
-            <!-- The result will be displayed here -->
+            <ul id="result-list"></ul>
           </div>
         </section>
-      </article>
+      </div>
 
       <aside class="right-section">
-        <section class="ad-container" aria-label="Advertisement">
+        <section class="ad-slot ad-slot-tall" aria-label="Advertisement">
           <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7174503033473057"
             data-ad-slot="1072106496" data-ad-format="auto" data-full-width-responsive="true"></ins>
-          <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
         </section>
 
         <section id="marketing-links">
           <h2 class="h2-heading">Links we care about</h2>
           <ul>
-            <li><a href="https://www.youtube.com/@Nadrah_?sub_confirmation=1" target="_blank"
+            <li><a href="https://www.youtube.com/@Nadrah_?sub_confirmation=1" target="_blank" rel="noopener"
                 class="icon-link">Struggles of a Muslim mom of 3 living in America YouTube Vlogs - subscribe now</a>
             </li>
             <li><a
@@ -164,10 +154,10 @@
             consultation service. <del>$200</del> Now available for just $20!</p>
           <p>Take advantage of this amazing 90% discount by making a payment of $20 to the following bank account:</p>
           <p><strong>Payment link:</strong> <a href="https://buy.stripe.com/9AQ02h7m258g892bIJ" target="_blank"
-              id="stripe-payment-button" class="icon-link">Pay on Stripe</a></p>
+              rel="noopener" id="stripe-payment-button" class="icon-link">Pay on Stripe</a></p>
           <p>After making the payment, click the button below to chat with me on WhatsApp: <a
-              href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" id="whatsapp-button" class="icon-link">Chat on
-              WhatsApp</a></p>
+              href="https://wa.me/message/UMXZ5XBAYMXSC1" target="_blank" rel="noopener" id="whatsapp-button"
+              class="icon-link">Chat on WhatsApp</a></p>
         </section>
 
         <section id="instructions">
@@ -212,7 +202,7 @@
             be taken as a definitive representation of one's ethnic background.</p>
         </section>
       </aside>
-    </section>
+    </div>
   </main>
 
   <footer>
@@ -220,9 +210,7 @@
         class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a></p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
-
 
 </html>
