@@ -28,6 +28,59 @@
         if (u && typeof u.track === "function") u.track(name, data || {});
       } catch (e) {}
     };
+    /* dankore-leads */
+    var ws = new RegExp("[" + String.fromCharCode(9, 10, 13) + " ]+", "g");
+    var files = ["pdf", "doc", "docx", "xls", "xlsx", "csv", "ppt", "pptx", "zip", "apk", "dmg", "exe"];
+    function label(el) {
+      try {
+        var t = el.getAttribute("aria-label") || el.getAttribute("title") || el.textContent || "";
+        return t.replace(ws, " ").trim().slice(0, 80);
+      } catch (e) { return ""; }
+    }
+    function own(h) {
+      h = h.replace("www.", "");
+      if (h === location.hostname.replace("www.", "")) return true;
+      for (var i = 0; i < domains.length; i++) if (domains[i].replace("www.", "") === h) return true;
+      return false;
+    }
+    document.addEventListener("click", function (ev) {
+      try {
+        var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
+        if (!a || a.closest("[data-umami-event]")) return;
+        var href = a.getAttribute("href") || "";
+        var lower = href.toLowerCase();
+        var page = location.pathname;
+        var text = label(a);
+        if (lower.indexOf("tel:") === 0) return window.dankoreTrack("call_click", { number: href.slice(4), text: text, page: page });
+        if (lower.indexOf("mailto:") === 0) return window.dankoreTrack("email_click", { to: href.slice(7).split("?")[0], text: text, page: page });
+        if (lower.indexOf("sms:") === 0) return window.dankoreTrack("sms_click", { number: href.slice(4).split("?")[0], page: page });
+        if (lower.indexOf("whatsapp:") === 0) return window.dankoreTrack("whatsapp_click", { text: text, page: page });
+        var url = new URL(href, location.href);
+        var host = url.hostname.toLowerCase();
+        if (host === "wa.me" || host.indexOf("whatsapp.") !== -1) return window.dankoreTrack("whatsapp_click", { text: text, page: page });
+        var ext = url.pathname.split(".").pop().toLowerCase();
+        if (a.hasAttribute("download") || files.indexOf(ext) !== -1) return window.dankoreTrack("download", { file: url.pathname.split("/").pop().slice(0, 80), page: page });
+        if ((url.protocol === "http:" || url.protocol === "https:") && !own(host)) return window.dankoreTrack("outbound_link", { host: host, url: (host + url.pathname).slice(0, 200), text: text, page: page });
+      } catch (e) {}
+    }, true);
+    document.addEventListener("submit", function (ev) {
+      try {
+        var f = ev.target;
+        if (!f || f.tagName !== "FORM" || f.closest("[data-umami-event]")) return;
+        var page = location.pathname;
+        var q = f.querySelector("input[type=search]");
+        if (q || f.getAttribute("role") === "search") {
+          q = q || f.querySelector("input[type=text], input:not([type])");
+          return window.dankoreTrack("search", { query: q ? String(q.value || "").trim().slice(0, 80) : "", page: page });
+        }
+        var name = f.getAttribute("data-track-name") || f.getAttribute("name") || f.getAttribute("id") || f.getAttribute("aria-label") || "";
+        if (!name) {
+          try { name = new URL(f.getAttribute("action") || location.href, location.href).pathname; } catch (e) { name = "form"; }
+        }
+        window.dankoreTrack("form_submit", { form: name.slice(0, 80), page: page });
+      } catch (e) {}
+    }, true);
+    /* /dankore-leads */
     function load(src, perf) {
       try {
         var s = document.createElement("script");
