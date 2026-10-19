@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.dankoresoft.ethnicity_calculator.twa",
+      "sha256_cert_fingerprints": [
+        "BA:4A:E4:8F:00:C8:E6:EB:67:6C:B4:18:0E:AA:D2:D5:2B:07:05:48:19:3E:CD:11:5B:C8:54:27:C3:04:B8:17"
+      ]
+    }
+  }
+]

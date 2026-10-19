@@ -9,7 +9,7 @@ const pages = ['index.html', 'services.html', 'privacy.html', '404.html'];
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out);
 
-for (const entry of ['icons', 'images', 'vendor', 'robots.txt', 'sitemap.xml', 'stylesheet.xsl', 'ads.txt', 'ethnic-makeup-seo-image.jpg']) {
+for (const entry of ['.well-known', 'icons', 'images', 'vendor', 'robots.txt', 'sitemap.xml', 'stylesheet.xsl', 'ads.txt', 'ethnic-makeup-seo-image.jpg']) {
   cpSync(entry, `${out}/${entry}`, { recursive: true });
 }
 
