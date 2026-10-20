@@ -44,7 +44,7 @@
                 </table>
                 <footer>
                     <p>Created by <a class="icon-link" href="https://www.dankoresoft.com/">Dankore Software LLC, USA</a> | Follow on <a
-                        class="icon-link" href="https://twitter.com/dankoresoftware">Twitter</a></p>
+                        class="icon-link" href="https://x.com/dankoresoftware" target="_blank" rel="noopener noreferrer">X</a></p>
                 </footer>
             </body>
         </html>

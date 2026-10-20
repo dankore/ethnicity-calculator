@@ -1482,6 +1482,7 @@ button {
 
 .footer-social {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 18px;
 }
@@ -1502,6 +1503,34 @@ button {
 
 .footer-social a:hover {
   border-color: #4fd1ae;
+}
+
+.footer-social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.footer-social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #23403a;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+  border-color: #4fd1ae;
+}
+
+.footer-social-icons .icon {
+  width: 18px;
+  height: 18px;
 }
 
 .footer-title {
